@@ -1,1 +1,2 @@
-#gitignore
+# Игнорим файл .gitignore в директории Terraform
+terraform/.gitignore
