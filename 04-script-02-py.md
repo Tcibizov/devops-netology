@@ -119,7 +119,45 @@ while True:
 
 ### Вывод скрипта при запуске при тестировании:
 ```
-???
+http://drive.google.com - 173.194.222.194
+http://mail.google.com - 64.233.163.17
+http://google.com - 64.233.165.100
+http://drive.google.com - 173.194.222.194
+http://mail.google.com - 64.233.163.17
+http://google.com - 64.233.165.102
+[ERROR] http://google.com IP mismatch: 64.233.165.100 64.233.165.102
+http://drive.google.com - 173.194.222.194
+http://mail.google.com - 64.233.163.17
+http://google.com - 64.233.165.102
+[ERROR] http://google.com IP mismatch: 64.233.165.100 64.233.165.102
+http://drive.google.com - 173.194.222.194
+http://mail.google.com - 64.233.163.17
+http://google.com - 64.233.165.102
+[ERROR] http://google.com IP mismatch: 64.233.165.100 64.233.165.102
+http://drive.google.com - 64.233.165.194
+[ERROR] http://drive.google.com IP mismatch: 173.194.222.194 64.233.165.194
+http://mail.google.com - 64.233.163.17
+http://google.com - 64.233.165.102
+http://drive.google.com - 173.194.222.194
+http://mail.google.com - 64.233.163.17
+http://google.com - 64.233.165.100
+http://drive.google.com - 173.194.222.194
+http://mail.google.com - 64.233.163.17
+http://google.com - 64.233.165.102
+[ERROR] http://google.com IP mismatch: 64.233.165.100 64.233.165.102
+http://drive.google.com - 173.194.222.194
+http://mail.google.com - 64.233.163.17
+http://google.com - 64.233.165.102
+[ERROR] http://google.com IP mismatch: 64.233.165.100 64.233.165.102
+http://drive.google.com - 173.194.222.194
+http://mail.google.com - 64.233.163.17
+http://google.com - 64.233.165.102
+[ERROR] http://google.com IP mismatch: 64.233.165.100 64.233.165.102
+http://drive.google.com - 64.233.165.194
+[ERROR] http://drive.google.com IP mismatch: 173.194.222.194 64.233.165.194
+http://mail.google.com - 64.233.163.17
+http://google.com - 64.233.165.102
+
 ```
 
 ## Дополнительное задание (со звездочкой*) - необязательно к выполнению
