@@ -69,7 +69,7 @@ date >>hosts.log
     for h in ${hosts[@]}
     do
 	curl -Is --connect-timeout $timeout $h:80 >/dev/null
-        echo "    check" $h status=$? >>hosts.log
+        echo "check" $h status=$? >>hosts.log
     done
 ```
 
