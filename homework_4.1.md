@@ -89,7 +89,7 @@ do
 	res=$?
 	if (($res != 0))
 	then
-	    echo "    ERROR on " $h status=$res >>hosts2.log
+	    echo " ERROR on " $h status=$res >>hosts2.log
 	fi
     done
 done
