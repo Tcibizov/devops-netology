@@ -44,7 +44,16 @@ done
 
 ### Ваш скрипт:
 ```bash
-???
+while (( 1 == 1 ))
+    do
+        curl https://localhost:4757
+        if (($? != 0))
+        then
+            date >> curl.log
+        else exit
+        fi
+        sleep 5
+    done
 ```
 
 ## Обязательная задача 3
@@ -52,7 +61,16 @@ done
 
 ### Ваш скрипт:
 ```bash
-???
+hosts=(192.168.0.1 173.194.222.113 87.250.250.242)
+timeout=5
+for i in {1..5}
+do
+date >>hosts.log
+    for h in ${hosts[@]}
+    do
+	curl -Is --connect-timeout $timeout $h:80 >/dev/null
+        echo "    check" $h status=$? >>hosts.log
+    done
 ```
 
 ## Обязательная задача 4
@@ -60,7 +78,21 @@ done
 
 ### Ваш скрипт:
 ```bash
-???
+hosts=(192.168.0.1 173.194.222.113 87.250.250.242)
+timeout=5
+res=0
+while (($res == 0))
+do
+    for h in ${hosts[@]}
+    do
+	curl -Is --connect-timeout $timeout $h:80 >/dev/null
+	res=$?
+	if (($res != 0))
+	then
+	    echo "    ERROR on " $h status=$res >>hosts2.log
+	fi
+    done
+done
 ```
 
 ## Дополнительное задание (со звездочкой*) - необязательно к выполнению
