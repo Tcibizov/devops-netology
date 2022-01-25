@@ -68,7 +68,23 @@ for result in result_os.split('\n'):
 
 ### Ваш скрипт:
 ```python
-???
+#!/usr/bin/env python3
+
+import os
+import sys
+
+path="~/netology/sysadm-homeworks"
+
+if len(sys.argv) > 1:
+    path = sys.argv[1]
+
+bash_command = ["cd " + path, "git status"]
+result_os = os.popen(' && '.join(bash_command)).read()
+is_change = False
+for result in result_os.split('\n'):
+    if result.find('modified') != -1:
+        prepare_result = result.replace('\tmodified:   ', '')
+        print(path + "/" + prepare_result)
 ```
 
 ### Вывод скрипта при запуске при тестировании:
@@ -81,7 +97,24 @@ for result in result_os.split('\n'):
 
 ### Ваш скрипт:
 ```python
-???
+#!/usr/bin/env python3
+
+import socket
+import time
+
+ip_list = [None, None, None]
+dns_names = ['drive.google.com', 'mail.google.com', 'google.com']
+
+while True:
+
+    for index in range(0, len(dns_names)):
+        time.sleep(1)
+        ip = socket.gethostbyname(dns_names[index])
+        print('http://' + dns_names[index] + ' - ' + ip)
+        if ip_list[index] is None:
+            ip_list[index] = ip
+        elif ip_list[index] != ip:
+            print('[ERROR] http://' + dns_names[index] + ' IP mismatch: ' + ip_list[index] + ' ' + ip)
 ```
 
 ### Вывод скрипта при запуске при тестировании:
