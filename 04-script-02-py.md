@@ -76,23 +76,29 @@ alex@debian:~$
 import os
 import sys
 
-path="~/netology/sysadm-homeworks"
+path="~/devops-netology-main"
 
 if len(sys.argv) > 1:
     path = sys.argv[1]
 
 bash_command = ["cd " + path, "git status"]
 result_os = os.popen(' && '.join(bash_command)).read()
-is_change = False
+# is_change = False
 for result in result_os.split('\n'):
-    if result.find('modified') != -1:
-        prepare_result = result.replace('\tmodified:   ', '')
+    if result.find('изменено') != -1:
+        prepare_result = result.replace('\tизменено:   ', '')
         print(path + "/" + prepare_result)
+#        break
 ```
 
 ### Вывод скрипта при запуске при тестировании:
 ```
-???
+alex@debian:~$ ./test.py /home/alex/
+fatal: не найден git репозиторий (или один из родительских каталогов): .git
+alex@debian:~$ ./test.py /home/alex/devops-netology-main
+/home/alex/devops-netology-main/   will_be_delete.txt
+alex@debian:~$ 
+
 ```
 
 ## Обязательная задача 4
