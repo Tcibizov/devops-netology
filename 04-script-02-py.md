@@ -61,7 +61,9 @@ for result in result_os.split('\n'):
 ### Вывод скрипта при запуске при тестировании:
 ```
 alex@debian:~$ ./test.py
+~/devops-netology-main/   will_be_delete.txt
 alex@debian:~$ 
+
 ```
 
 ## Обязательная задача 3
