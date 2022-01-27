@@ -46,6 +46,7 @@ for result in result_os.split('\n'):
 #!/usr/bin/env python3
 
 import os
+
 path="~/devops-netology-main"
 bash_command = ["cd " + path, "git status"]
 result_os = os.popen(' && '.join(bash_command)).read()
