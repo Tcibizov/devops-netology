@@ -54,12 +54,14 @@ is_change = False
 for result in result_os.split('\n'):
     if result.find('modified') != -1:
         prepare_result = result.replace('\tmodified:   ', '')
-        print(path + "/" + prepare_result)  
+        print(path + "/" + prepare_result)
+        break
 ```
 
 ### Вывод скрипта при запуске при тестировании:
 ```
-???
+alex@debian:~$ ./test.py
+alex@debian:~$ 
 ```
 
 ## Обязательная задача 3
