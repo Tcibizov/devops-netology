@@ -130,9 +130,15 @@ writing new private key to 'tls.key'
 Vault TLS key and self-signed certificate have been generated in '/opt/vault/tls'.
 root@vagrant:~#
 ```
-
 4. Cоздайте центр сертификации по инструкции ([ссылка](https://learn.hashicorp.com/tutorials/vault/pki-engine?in=vault/secrets-management)) и выпустите сертификат для использования его в настройке веб-сервера nginx (срок жизни сертификата - месяц).
-6. Установите корневой сертификат созданного центра сертификации в доверенные в хостовой системе.
+> Ответ:
+```bash
+
+```
+5. Установите корневой сертификат созданного центра сертификации в доверенные в хостовой системе.
+> Ответ:
+```bash
+```
 7. Установите nginx.
 8. По инструкции ([ссылка](https://nginx.org/en/docs/http/configuring_https_servers.html)) настройте nginx на https, используя ранее подготовленный сертификат:
   - можно использовать стандартную стартовую страницу nginx для демонстрации работы сервера;
