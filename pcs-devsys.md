@@ -133,6 +133,83 @@ root@vagrant:~#
 4. Cоздайте центр сертификации по инструкции ([ссылка](https://learn.hashicorp.com/tutorials/vault/pki-engine?in=vault/secrets-management)) и выпустите сертификат для использования его в настройке веб-сервера nginx (срок жизни сертификата - месяц).
 > Ответ:
 ```bash
+root@vagrant:~# vault server -dev -dev-root-token-id root
+==> Vault server configuration:
+
+             Api Address: http://127.0.0.1:8200
+                     Cgo: disabled
+         Cluster Address: https://127.0.0.1:8201
+              Go Version: go1.17.5
+              Listener 1: tcp (addr: "127.0.0.1:8200", cluster address: "127.0.0.1:8201", max_request_duration: "1m30s", max_request_size: "33554432", tls: "disabled")
+               Log Level: info
+                   Mlock: supported: true, enabled: false
+           Recovery Mode: false
+                 Storage: inmem
+                 Version: Vault v1.9.3
+             Version Sha: 7dbdd57243a0d8d9d9e07cd01eb657369f8e1b8a
+
+==> Vault server started! Log data will stream in below:
+
+2022-02-11T09:58:43.693Z [INFO]  proxy environment: http_proxy="\"\"" https_proxy="\"\"" no_proxy="\"\""
+2022-02-11T09:58:43.694Z [WARN]  no `api_addr` value specified in config or in VAULT_API_ADDR; falling back to detection if possible, but this value should be manually set
+2022-02-11T09:58:43.703Z [INFO]  core: Initializing VersionTimestamps for core
+2022-02-11T09:58:43.706Z [INFO]  core: security barrier not initialized
+2022-02-11T09:58:43.707Z [INFO]  core: security barrier initialized: stored=1 shares=1 threshold=1
+2022-02-11T09:58:43.710Z [INFO]  core: post-unseal setup starting
+2022-02-11T09:58:43.715Z [INFO]  core: loaded wrapping token key
+2022-02-11T09:58:43.716Z [INFO]  core: Recorded vault version: vault version=1.9.3 upgrade time="2022-02-11 09:58:43.71582054 +0000 UTC m=+0.999829898"
+2022-02-11T09:58:43.718Z [INFO]  core: successfully setup plugin catalog: plugin-directory="\"\""
+2022-02-11T09:58:43.718Z [INFO]  core: no mounts; adding default mount table
+2022-02-11T09:58:43.843Z [INFO]  core: successfully mounted backend: type=cubbyhole path=cubbyhole/
+2022-02-11T09:58:43.846Z [INFO]  core: successfully mounted backend: type=system path=sys/
+2022-02-11T09:58:43.854Z [INFO]  core: successfully mounted backend: type=identity path=identity/
+2022-02-11T09:58:43.926Z [INFO]  core: successfully enabled credential backend: type=token path=token/
+2022-02-11T09:58:43.929Z [INFO]  core: restoring leases
+2022-02-11T09:58:43.929Z [INFO]  rollback: starting rollback manager
+2022-02-11T09:58:43.947Z [INFO]  expiration: lease restore complete
+2022-02-11T09:58:43.974Z [INFO]  identity: entities restored
+2022-02-11T09:58:43.974Z [INFO]  identity: groups restored
+2022-02-11T09:58:43.974Z [INFO]  core: post-unseal setup complete
+2022-02-11T09:58:43.980Z [INFO]  core: root token generated
+2022-02-11T09:58:43.980Z [INFO]  core: pre-seal teardown starting
+2022-02-11T09:58:43.980Z [INFO]  rollback: stopping rollback manager
+2022-02-11T09:58:43.980Z [INFO]  core: pre-seal teardown complete
+2022-02-11T09:58:43.983Z [INFO]  core.cluster-listener.tcp: starting listener: listener_address=127.0.0.1:8201
+2022-02-11T09:58:43.984Z [INFO]  core.cluster-listener: serving cluster requests: cluster_listen_address=127.0.0.1:8201
+2022-02-11T09:58:43.985Z [INFO]  core: post-unseal setup starting
+2022-02-11T09:58:43.985Z [INFO]  core: loaded wrapping token key
+2022-02-11T09:58:43.985Z [INFO]  core: successfully setup plugin catalog: plugin-directory="\"\""
+2022-02-11T09:58:43.991Z [INFO]  core: successfully mounted backend: type=system path=sys/
+2022-02-11T09:58:43.997Z [INFO]  core: successfully mounted backend: type=identity path=identity/
+2022-02-11T09:58:43.997Z [INFO]  core: successfully mounted backend: type=cubbyhole path=cubbyhole/
+2022-02-11T09:58:44.021Z [INFO]  core: successfully enabled credential backend: type=token path=token/
+2022-02-11T09:58:44.023Z [INFO]  rollback: starting rollback manager
+2022-02-11T09:58:44.024Z [INFO]  core: restoring leases
+2022-02-11T09:58:44.027Z [INFO]  identity: entities restored
+2022-02-11T09:58:44.027Z [INFO]  identity: groups restored
+2022-02-11T09:58:44.027Z [INFO]  expiration: lease restore complete
+2022-02-11T09:58:44.028Z [INFO]  core: post-unseal setup complete
+2022-02-11T09:58:44.028Z [INFO]  core: vault is unsealed
+2022-02-11T09:58:44.039Z [INFO]  expiration: revoked lease: lease_id=auth/token/root/he9f25f172412c2705183afde4865e07f0b847df0a200dfacc84786fb8c3b7cb6
+2022-02-11T09:58:44.073Z [INFO]  core: successful mount: namespace="\"\"" path=secret/ type=kv
+2022-02-11T09:58:44.081Z [INFO]  secrets.kv.kv_d296b423: collecting keys to upgrade
+2022-02-11T09:58:44.081Z [INFO]  secrets.kv.kv_d296b423: done collecting keys: num_keys=1
+2022-02-11T09:58:44.081Z [INFO]  secrets.kv.kv_d296b423: upgrading keys finished
+WARNING! dev mode is enabled! In this mode, Vault runs entirely in-memory
+and starts unsealed with a single unseal key. The root token is already
+authenticated to the CLI, so you can immediately begin using Vault.
+
+You may need to set the following environment variable:
+
+    $ export VAULT_ADDR='http://127.0.0.1:8200'
+
+The unseal key and root token are displayed below in case you want to
+seal/unseal the Vault or re-authenticate.
+
+Unseal Key: cV0Lu4AClzp1aaA2/KvTdaw5j74gzUBIWm6/6J8VJKk=
+Root Token: root
+
+Development mode should NOT be used in production installations!
 
 ```
 5. Установите корневой сертификат созданного центра сертификации в доверенные в хостовой системе.
