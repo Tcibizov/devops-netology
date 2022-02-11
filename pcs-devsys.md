@@ -7,7 +7,8 @@
 ## Задание
 
 1. Создайте виртуальную машину Linux.
-> Сощдаём новую виртуальную машину. Vagrantfile:
+> Создаём новую виртуальную машину. Vagrantfile:
+```bash
 Vagrant.configure("2") do |config|
     config.vm.hostname = "vagrant"
  	config.vm.box = "bento/ubuntu-20.04"
@@ -18,6 +19,7 @@ Vagrant.configure("2") do |config|
 	  v.cpus = 4
 	end
  end
+```
 
 3. Установите ufw и разрешите к этой машине сессии на порты 22 и 443, при этом трафик на интерфейсе localhost (lo) должен ходить свободно на все порты.
 4. Установите hashicorp vault ([инструкция по ссылке](https://learn.hashicorp.com/tutorials/vault/getting-started-install?in=vault/getting-started#install-vault)).
