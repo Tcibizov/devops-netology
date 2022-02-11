@@ -7,7 +7,7 @@
 ## Задание
 
 1. Создайте виртуальную машину Linux.
-Сощдаём новую виртуальную машину. Vagrantfile:
+> Сощдаём новую виртуальную машину. Vagrantfile:
 Vagrant.configure("2") do |config|
     config.vm.hostname = "vagrant"
  	config.vm.box = "bento/ubuntu-20.04"
