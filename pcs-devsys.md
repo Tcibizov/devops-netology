@@ -7,7 +7,7 @@
 ## Задание
 
 1. Создайте виртуальную машину Linux.
-> Создаём новую виртуальную машину. Vagrantfile:
+> Создаём новую виртуальную машину. Содержимое Vagrantfile:
 ```bash
 Vagrant.configure("2") do |config|
     config.vm.hostname = "vagrant"
@@ -15,13 +15,46 @@ Vagrant.configure("2") do |config|
 	config.vm.network "forwarded_port", guest: 80, host: 80
     config.vm.network "forwarded_port", guest: 443, host: 443
 	config.vm.provider "virtualbox" do |v|
-	  v.memory = 2048
-	  v.cpus = 4
+	  v.memory = 4096
+	  v.cpus = 2
 	end
  end
 ```
 
-3. Установите ufw и разрешите к этой машине сессии на порты 22 и 443, при этом трафик на интерфейсе localhost (lo) должен ходить свободно на все порты.
+2. Установите ufw и разрешите к этой машине сессии на порты 22 и 443, при этом трафик на интерфейсе localhost (lo) должен ходить свободно на все порты.
+> Ответ:
+```bash
+root@vagrant:~# sudo apt install ufw
+Reading package lists... Done
+Building dependency tree       
+Reading state information... Done
+ufw is already the newest version (0.36-6).
+0 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.
+root@vagrant:~# sudo ufw allow 22
+Rules updated
+Rules updated (v6)
+root@vagrant:~# sudo ufw allow 443
+Rules updated
+Rules updated (v6)
+root@vagrant:~# sudo ufw enable
+Command may disrupt existing ssh connections. Proceed with operation (y|n)? y
+Firewall is active and enabled on system startup
+root@vagrant:~# sudo ufw status verbose
+Status: active
+Logging: on (low)
+Default: deny (incoming), allow (outgoing), disabled (routed)
+New profiles: skip
+
+To                         Action      From
+--                         ------      ----
+22                         ALLOW IN    Anywhere                  
+443                        ALLOW IN    Anywhere                  
+22 (v6)                    ALLOW IN    Anywhere (v6)             
+443 (v6)                   ALLOW IN    Anywhere (v6)             
+
+root@vagrant:~# 
+```
+
 4. Установите hashicorp vault ([инструкция по ссылке](https://learn.hashicorp.com/tutorials/vault/getting-started-install?in=vault/getting-started#install-vault)).
 5. Cоздайте центр сертификации по инструкции ([ссылка](https://learn.hashicorp.com/tutorials/vault/pki-engine?in=vault/secrets-management)) и выпустите сертификат для использования его в настройке веб-сервера nginx (срок жизни сертификата - месяц).
 6. Установите корневой сертификат созданного центра сертификации в доверенные в хостовой системе.
