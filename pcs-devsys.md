@@ -210,8 +210,62 @@ Unseal Key: cV0Lu4AClzp1aaA2/KvTdaw5j74gzUBIWm6/6J8VJKk=
 Root Token: root
 
 Development mode should NOT be used in production installations!
+```
+> Устанавливаем JSON:
+```bash
+root@vagrant:~# sudo apt-get install jq
+Reading package lists... Done
+Building dependency tree       
+Reading state information... Done
+The following additional packages will be installed:
+  libjq1 libonig5
+The following NEW packages will be installed:
+  jq libjq1 libonig5
+0 upgraded, 3 newly installed, 0 to remove and 125 not upgraded.
+Need to get 313 kB of archives.
+After this operation, 1,062 kB of additional disk space will be used.
+Do you want to continue? [Y/n] Y
+Get:1 http://archive.ubuntu.com/ubuntu focal/universe amd64 libonig5 amd64 6.9.4-1 [142 kB]
+Get:2 http://archive.ubuntu.com/ubuntu focal-updates/universe amd64 libjq1 amd64 1.6-1ubuntu0.20.04.1 [121 kB]
+Get:3 http://archive.ubuntu.com/ubuntu focal-updates/universe amd64 jq amd64 1.6-1ubuntu0.20.04.1 [50.2 kB]
+Fetched 313 kB in 0s (645 kB/s)
+Selecting previously unselected package libonig5:amd64.
+(Reading database ... 41558 files and directories currently installed.)
+Preparing to unpack .../libonig5_6.9.4-1_amd64.deb ...
+Unpacking libonig5:amd64 (6.9.4-1) ...
+Selecting previously unselected package libjq1:amd64.
+Preparing to unpack .../libjq1_1.6-1ubuntu0.20.04.1_amd64.deb ...
+Unpacking libjq1:amd64 (1.6-1ubuntu0.20.04.1) ...
+Selecting previously unselected package jq.
+Preparing to unpack .../jq_1.6-1ubuntu0.20.04.1_amd64.deb ...
+Unpacking jq (1.6-1ubuntu0.20.04.1) ...
+Setting up libonig5:amd64 (6.9.4-1) ...
+Setting up libjq1:amd64 (1.6-1ubuntu0.20.04.1) ...
+Setting up jq (1.6-1ubuntu0.20.04.1) ...
+Processing triggers for man-db (2.9.1-1) ...
+Processing triggers for libc-bin (2.31-0ubuntu9.2) ...
+root@vagrant:~# 
+```
+> Делаем экспорт переменной среды для vault CLI для адресации к серверу Vault и переменной среды для CLI хранилища для аутентификации на сервере Vault.
+```bash
+root@vagrant:~# export VAULT_ADDR=http://127.0.0.1:8200
+root@vagrant:~# export VAULT_TOKEN=root
+root@vagrant:~# 
+```
+> Настроим механизм секретов pki с временем жизни раз в месяц (720 часов)
+```bash
+root@vagrant:~# vault secrets enable pki
+Success! Enabled the pki secrets engine at: pki/
+root@vagrant:~# vault secrets tune -max-lease-ttl=720h pki
+Success! Tuned the secrets engine at: pki/
+root@vagrant:~#
+```
+> Генерируем корневой сертификат:
+```bash
 
 ```
+
+
 5. Установите корневой сертификат созданного центра сертификации в доверенные в хостовой системе.
 > Ответ:
 ```bash
