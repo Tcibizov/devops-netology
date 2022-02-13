@@ -269,6 +269,17 @@ root@vagrant:~#
 5. Установите корневой сертификат созданного центра сертификации в доверенные в хостовой системе.
 > Ответ:
 ```bash
+alex@debian:~/vagrant$ nano CA_cert.crt
+alex@debian:~/vagrant$ gcr-viewer CA_cert.crt
+root@debian:/home/alex/vagrant# sudo cp ./CA_cert.crt /usr/local/share/ca-certificates/
+root@debian:/home/alex/vagrant# sudo update-ca-certificates
+Updating certificates in /etc/ssl/certs...
+1 added, 0 removed; done.
+Running hooks in /etc/ca-certificates/update.d...
+done.
+root@debian:/home/alex/vagrant# awk -v cmd='openssl x509 -noout -subject' ' /BEGIN/{close(cmd)};{print | cmd}' < /etc/ssl/certs/ca-certificates.crt | grep -i example.com
+subject=CN = example.com
+
 ```
 7. Установите nginx.
 8. По инструкции ([ссылка](https://nginx.org/en/docs/http/configuring_https_servers.html)) настройте nginx на https, используя ранее подготовленный сертификат:
