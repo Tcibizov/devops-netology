@@ -381,7 +381,7 @@ serial_number       3e:a1:3e:ee:1b:10:8d:06:cd:e8:fc:27:ee:d2:33:81:ab:16:36:91
 > Ответ:
 ```bash
 alex@debian:~/vagrant$ gcr-viewer CA_cert.crt
-!(CA_cert.png)
+![image](https://github.com/Tcibizov/devops-netology/blob/53cfb1d564f7d32143121bc892924938b41cf689/pcs-devsys/CA_cert.png)
 root@debian:/home/alex/vagrant# sudo cp ./CA_cert.crt /usr/local/share/ca-certificates/
 root@debian:/home/alex/vagrant# sudo update-ca-certificates
 Updating certificates in /etc/ssl/certs...
