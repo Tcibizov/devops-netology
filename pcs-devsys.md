@@ -249,17 +249,42 @@ vagrant@vagrant:~# export VAULT_TOKEN=root
 ```
 > Настроим механизм секретов pki с временем жизни раз в месяц (720 часов)
 ```bash
-root@vagrant:~# vault secrets enable pki
+vagrant@vagrant:~# vault secrets enable pki
 Success! Enabled the pki secrets engine at: pki/
-root@vagrant:~# vault secrets tune -max-lease-ttl=720h pki
+vagrant@vagrant:~# vault secrets tune -max-lease-ttl=720h pki
 Success! Tuned the secrets engine at: pki/
-root@vagrant:~#
 ```
 > Генерируем корневой сертификат:
 ```bash
+vagrant@vagrant:~$ vault write -field=certificate pki/root/generate/internal \
+> common_name="example.com" \
+> ttl=720h > CA_cert.crt
+vagrant@vagrant:~$ cat CA_cert.crt
+-----BEGIN CERTIFICATE-----
+MIIDNTCCAh2gAwIBAgIUWpCoyq7Zr95UvmVmpoQ9HfmOGHEwDQYJKoZIhvcNAQEL
+BQAwFjEUMBIGA1UEAxMLZXhhbXBsZS5jb20wHhcNMjIwMjE0MDkzNDQ0WhcNMjIw
+MzE2MDkzNTEzWjAWMRQwEgYDVQQDEwtleGFtcGxlLmNvbTCCASIwDQYJKoZIhvcN
+AQEBBQADggEPADCCAQoCggEBAMDHSssESL18LXibSFbB4MlUt3RNFYeEjC3nBCKE
+iVWoQJ0JTD+/SeiZTR7z/MqvP1vgVBI7EZDpMu4zpXdjnv+gg0SRx062OcKdNdYf
+kDEyGFIiXDArF7DEZuL10gfu1lhGWXIb1zMcUEAHSWfoOn46TWIhAYn504svk0mY
+IWSGfj7pd2Fukq62wzXw+7nfVSgbu5hsw5iEYj4uXCwXLk5i8oS5IKpiCUDeCehL
+mVzWHy9R8ciLW8VRE0e8qYjdMDe8xI4/VKqKGe7f2q9vMavEhf6P8v2lddGYtR0r
+7sR6Xdv6yK22fsE7VhORmoDyqwC37797uy6rxKq0X/JBNv0CAwEAAaN7MHkwDgYD
+VR0PAQH/BAQDAgEGMA8GA1UdEwEB/wQFMAMBAf8wHQYDVR0OBBYEFDPraYI5BylY
+fymrhF3cPUvOUXmlMB8GA1UdIwQYMBaAFDPraYI5BylYfymrhF3cPUvOUXmlMBYG
+A1UdEQQPMA2CC2V4YW1wbGUuY29tMA0GCSqGSIb3DQEBCwUAA4IBAQBFqbAAx4OF
+YhcYNyrujsScStRiKEG0Wl5C0uvn2vsQGXbgUjCiooqZBznsqNDf9kgpHs+rRCDh
+HV12oeAKanisrkLyCHpB5bFO1TNXILCSY+8nwotyQ8Wz9JmMfnt0HVfMXv63zrLr
+HbzjxtoVwlAxvU2L7pOUx+pa4UQCS4P2FBK9p5TDtWPc46Vwb1o/Wv/CTc+Y0p1K
+8xAq2eEvNp1uH3ndwLH2JupWtCx5p8OBhEoJrhdkG0RtBN1YMy8/7Pt9F43MLsPz
+awUoDKprqXMy/0ycWUp3Q/0k7FU+xIco5PmqnjEx15bq0GEpqRsKLShwDggTGN/F
+LYfjQ/qtjC3D
+-----END CERTIFICATE-----
+```
+> Конфигурируем CA и CRL ссылки(URLs):
+```bash
 
 ```
-
 
 5. Установите корневой сертификат созданного центра сертификации в доверенные в хостовой системе.
 > Ответ:
