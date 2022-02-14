@@ -24,7 +24,7 @@ Vagrant.configure("2") do |config|
 2. Установите ufw и разрешите к этой машине сессии на порты 22 и 443, при этом трафик на интерфейсе localhost (lo) должен ходить свободно на все порты.
 > Ответ:
 ```bash
-root@vagrant:~# sudo apt install ufw
+vagrant@vagrant:~# sudo apt install ufw
 Reading package lists... Done
 Building dependency tree       
 Reading state information... Done
@@ -33,13 +33,13 @@ ufw is already the newest version (0.36-6).
 root@vagrant:~# sudo ufw allow 22
 Rules updated
 Rules updated (v6)
-root@vagrant:~# sudo ufw allow 443
+vagrant@vagrant:~# sudo ufw allow 443
 Rules updated
 Rules updated (v6)
-root@vagrant:~# sudo ufw enable
+vagrant@vagrant:~# sudo ufw enable
 Command may disrupt existing ssh connections. Proceed with operation (y|n)? y
 Firewall is active and enabled on system startup
-root@vagrant:~# sudo ufw status verbose
+vagrant@vagrant:~# sudo ufw status verbose
 Status: active
 Logging: on (low)
 Default: deny (incoming), allow (outgoing), disabled (routed)
@@ -58,7 +58,7 @@ root@vagrant:~#
 3. Установите hashicorp vault ([инструкция по ссылке](https://learn.hashicorp.com/tutorials/vault/getting-started-install?in=vault/getting-started#install-vault)).
 > Ответ:
 ```bash
-root@vagrant:~# curl -fsSL https://apt.releases.hashicorp.com/gpg | sudo apt-key add
+vagrant@vagrant:~# curl -fsSL https://apt.releases.hashicorp.com/gpg | sudo apt-key add
 OK
 root@vagrant:~# sudo apt-add-repository "deb [arch=amd64] https://apt.releases.hashicorp.com $(lsb_release -cs) main"
 Hit:1 http://archive.ubuntu.com/ubuntu focal InRelease
@@ -99,7 +99,7 @@ Get:35 http://security.ubuntu.com/ubuntu focal-security/multiverse amd64 Package
 Get:36 http://security.ubuntu.com/ubuntu focal-security/multiverse Translation-en [5,196 B]                              
 Fetched 9,816 kB in 17s (587 kB/s)                                                                                       
 Reading package lists... Done
-root@vagrant:~# sudo apt-get update && sudo apt-get install vault
+vagrant@vagrant:~# sudo apt-get update && sudo apt-get install vault
 Hit:1 http://archive.ubuntu.com/ubuntu focal InRelease
 Hit:2 http://archive.ubuntu.com/ubuntu focal-updates InRelease                      
 Hit:3 http://archive.ubuntu.com/ubuntu focal-backports InRelease                    
@@ -128,12 +128,11 @@ Generating a RSA private key
 writing new private key to 'tls.key'
 -----
 Vault TLS key and self-signed certificate have been generated in '/opt/vault/tls'.
-root@vagrant:~#
 ```
 4. Cоздайте центр сертификации по инструкции ([ссылка](https://learn.hashicorp.com/tutorials/vault/pki-engine?in=vault/secrets-management)) и выпустите сертификат для использования его в настройке веб-сервера nginx (срок жизни сертификата - месяц).
-> Ответ:
+> Ответ: Запускаем в новом терминале.
 ```bash
-root@vagrant:~# vault server -dev -dev-root-token-id root
+vagrant@vagrant:~$ vault server -dev -dev-root-token-id root
 ==> Vault server configuration:
 
              Api Address: http://127.0.0.1:8200
@@ -150,51 +149,51 @@ root@vagrant:~# vault server -dev -dev-root-token-id root
 
 ==> Vault server started! Log data will stream in below:
 
-2022-02-11T09:58:43.693Z [INFO]  proxy environment: http_proxy="\"\"" https_proxy="\"\"" no_proxy="\"\""
-2022-02-11T09:58:43.694Z [WARN]  no `api_addr` value specified in config or in VAULT_API_ADDR; falling back to detection if possible, but this value should be manually set
-2022-02-11T09:58:43.703Z [INFO]  core: Initializing VersionTimestamps for core
-2022-02-11T09:58:43.706Z [INFO]  core: security barrier not initialized
-2022-02-11T09:58:43.707Z [INFO]  core: security barrier initialized: stored=1 shares=1 threshold=1
-2022-02-11T09:58:43.710Z [INFO]  core: post-unseal setup starting
-2022-02-11T09:58:43.715Z [INFO]  core: loaded wrapping token key
-2022-02-11T09:58:43.716Z [INFO]  core: Recorded vault version: vault version=1.9.3 upgrade time="2022-02-11 09:58:43.71582054 +0000 UTC m=+0.999829898"
-2022-02-11T09:58:43.718Z [INFO]  core: successfully setup plugin catalog: plugin-directory="\"\""
-2022-02-11T09:58:43.718Z [INFO]  core: no mounts; adding default mount table
-2022-02-11T09:58:43.843Z [INFO]  core: successfully mounted backend: type=cubbyhole path=cubbyhole/
-2022-02-11T09:58:43.846Z [INFO]  core: successfully mounted backend: type=system path=sys/
-2022-02-11T09:58:43.854Z [INFO]  core: successfully mounted backend: type=identity path=identity/
-2022-02-11T09:58:43.926Z [INFO]  core: successfully enabled credential backend: type=token path=token/
-2022-02-11T09:58:43.929Z [INFO]  core: restoring leases
-2022-02-11T09:58:43.929Z [INFO]  rollback: starting rollback manager
-2022-02-11T09:58:43.947Z [INFO]  expiration: lease restore complete
-2022-02-11T09:58:43.974Z [INFO]  identity: entities restored
-2022-02-11T09:58:43.974Z [INFO]  identity: groups restored
-2022-02-11T09:58:43.974Z [INFO]  core: post-unseal setup complete
-2022-02-11T09:58:43.980Z [INFO]  core: root token generated
-2022-02-11T09:58:43.980Z [INFO]  core: pre-seal teardown starting
-2022-02-11T09:58:43.980Z [INFO]  rollback: stopping rollback manager
-2022-02-11T09:58:43.980Z [INFO]  core: pre-seal teardown complete
-2022-02-11T09:58:43.983Z [INFO]  core.cluster-listener.tcp: starting listener: listener_address=127.0.0.1:8201
-2022-02-11T09:58:43.984Z [INFO]  core.cluster-listener: serving cluster requests: cluster_listen_address=127.0.0.1:8201
-2022-02-11T09:58:43.985Z [INFO]  core: post-unseal setup starting
-2022-02-11T09:58:43.985Z [INFO]  core: loaded wrapping token key
-2022-02-11T09:58:43.985Z [INFO]  core: successfully setup plugin catalog: plugin-directory="\"\""
-2022-02-11T09:58:43.991Z [INFO]  core: successfully mounted backend: type=system path=sys/
-2022-02-11T09:58:43.997Z [INFO]  core: successfully mounted backend: type=identity path=identity/
-2022-02-11T09:58:43.997Z [INFO]  core: successfully mounted backend: type=cubbyhole path=cubbyhole/
-2022-02-11T09:58:44.021Z [INFO]  core: successfully enabled credential backend: type=token path=token/
-2022-02-11T09:58:44.023Z [INFO]  rollback: starting rollback manager
-2022-02-11T09:58:44.024Z [INFO]  core: restoring leases
-2022-02-11T09:58:44.027Z [INFO]  identity: entities restored
-2022-02-11T09:58:44.027Z [INFO]  identity: groups restored
-2022-02-11T09:58:44.027Z [INFO]  expiration: lease restore complete
-2022-02-11T09:58:44.028Z [INFO]  core: post-unseal setup complete
-2022-02-11T09:58:44.028Z [INFO]  core: vault is unsealed
-2022-02-11T09:58:44.039Z [INFO]  expiration: revoked lease: lease_id=auth/token/root/he9f25f172412c2705183afde4865e07f0b847df0a200dfacc84786fb8c3b7cb6
-2022-02-11T09:58:44.073Z [INFO]  core: successful mount: namespace="\"\"" path=secret/ type=kv
-2022-02-11T09:58:44.081Z [INFO]  secrets.kv.kv_d296b423: collecting keys to upgrade
-2022-02-11T09:58:44.081Z [INFO]  secrets.kv.kv_d296b423: done collecting keys: num_keys=1
-2022-02-11T09:58:44.081Z [INFO]  secrets.kv.kv_d296b423: upgrading keys finished
+2022-02-14T09:26:22.418Z [INFO]  proxy environment: http_proxy="\"\"" https_proxy="\"\"" no_proxy="\"\""
+2022-02-14T09:26:22.424Z [WARN]  no `api_addr` value specified in config or in VAULT_API_ADDR; falling back to detection if possible, but this value should be manually set
+2022-02-14T09:26:22.433Z [INFO]  core: Initializing VersionTimestamps for core
+2022-02-14T09:26:22.439Z [INFO]  core: security barrier not initialized
+2022-02-14T09:26:22.440Z [INFO]  core: security barrier initialized: stored=1 shares=1 threshold=1
+2022-02-14T09:26:22.454Z [INFO]  core: post-unseal setup starting
+2022-02-14T09:26:22.459Z [INFO]  core: loaded wrapping token key
+2022-02-14T09:26:22.460Z [INFO]  core: Recorded vault version: vault version=1.9.3 upgrade time="2022-02-14 09:26:22.459730278 +0000 UTC m=+1.135778697"
+2022-02-14T09:26:22.462Z [INFO]  core: successfully setup plugin catalog: plugin-directory="\"\""
+2022-02-14T09:26:22.463Z [INFO]  core: no mounts; adding default mount table
+2022-02-14T09:26:22.572Z [INFO]  core: successfully mounted backend: type=cubbyhole path=cubbyhole/
+2022-02-14T09:26:22.574Z [INFO]  core: successfully mounted backend: type=system path=sys/
+2022-02-14T09:26:22.578Z [INFO]  core: successfully mounted backend: type=identity path=identity/
+2022-02-14T09:26:22.638Z [INFO]  core: successfully enabled credential backend: type=token path=token/
+2022-02-14T09:26:22.639Z [INFO]  rollback: starting rollback manager
+2022-02-14T09:26:22.640Z [INFO]  core: restoring leases
+2022-02-14T09:26:22.645Z [INFO]  expiration: lease restore complete
+2022-02-14T09:26:22.671Z [INFO]  identity: entities restored
+2022-02-14T09:26:22.671Z [INFO]  identity: groups restored
+2022-02-14T09:26:22.671Z [INFO]  core: post-unseal setup complete
+2022-02-14T09:26:22.675Z [INFO]  core: root token generated
+2022-02-14T09:26:22.675Z [INFO]  core: pre-seal teardown starting
+2022-02-14T09:26:22.676Z [INFO]  rollback: stopping rollback manager
+2022-02-14T09:26:22.676Z [INFO]  core: pre-seal teardown complete
+2022-02-14T09:26:22.678Z [INFO]  core.cluster-listener.tcp: starting listener: listener_address=127.0.0.1:8201
+2022-02-14T09:26:22.678Z [INFO]  core.cluster-listener: serving cluster requests: cluster_listen_address=127.0.0.1:8201
+2022-02-14T09:26:22.679Z [INFO]  core: post-unseal setup starting
+2022-02-14T09:26:22.679Z [INFO]  core: loaded wrapping token key
+2022-02-14T09:26:22.679Z [INFO]  core: successfully setup plugin catalog: plugin-directory="\"\""
+2022-02-14T09:26:22.687Z [INFO]  core: successfully mounted backend: type=system path=sys/
+2022-02-14T09:26:22.691Z [INFO]  core: successfully mounted backend: type=identity path=identity/
+2022-02-14T09:26:22.691Z [INFO]  core: successfully mounted backend: type=cubbyhole path=cubbyhole/
+2022-02-14T09:26:22.706Z [INFO]  core: successfully enabled credential backend: type=token path=token/
+2022-02-14T09:26:22.708Z [INFO]  rollback: starting rollback manager
+2022-02-14T09:26:22.710Z [INFO]  core: restoring leases
+2022-02-14T09:26:22.712Z [INFO]  expiration: lease restore complete
+2022-02-14T09:26:22.716Z [INFO]  identity: entities restored
+2022-02-14T09:26:22.716Z [INFO]  identity: groups restored
+2022-02-14T09:26:22.716Z [INFO]  core: post-unseal setup complete
+2022-02-14T09:26:22.716Z [INFO]  core: vault is unsealed
+2022-02-14T09:26:22.728Z [INFO]  expiration: revoked lease: lease_id=auth/token/root/h79f798c2a532a590d7c82b4b8acc223c14d2f68a0886e85cbdfedd11c8f30655
+2022-02-14T09:26:22.769Z [INFO]  core: successful mount: namespace="\"\"" path=secret/ type=kv
+2022-02-14T09:26:22.772Z [INFO]  secrets.kv.kv_3de9e3fe: collecting keys to upgrade
+2022-02-14T09:26:22.772Z [INFO]  secrets.kv.kv_3de9e3fe: done collecting keys: num_keys=1
+2022-02-14T09:26:22.772Z [INFO]  secrets.kv.kv_3de9e3fe: upgrading keys finished
 WARNING! dev mode is enabled! In this mode, Vault runs entirely in-memory
 and starts unsealed with a single unseal key. The root token is already
 authenticated to the CLI, so you can immediately begin using Vault.
@@ -206,14 +205,14 @@ You may need to set the following environment variable:
 The unseal key and root token are displayed below in case you want to
 seal/unseal the Vault or re-authenticate.
 
-Unseal Key: cV0Lu4AClzp1aaA2/KvTdaw5j74gzUBIWm6/6J8VJKk=
+Unseal Key: Wbp6oA4hrDgxT3dPDkdvusd3BrD6LQqTkz9kTl/Mmg4=
 Root Token: root
 
 Development mode should NOT be used in production installations!
 ```
 > Устанавливаем JSON:
 ```bash
-root@vagrant:~# sudo apt-get install jq
+vagrant@vagrant:~$ sudo apt-get install jq
 Reading package lists... Done
 Building dependency tree       
 Reading state information... Done
@@ -228,7 +227,7 @@ Do you want to continue? [Y/n] Y
 Get:1 http://archive.ubuntu.com/ubuntu focal/universe amd64 libonig5 amd64 6.9.4-1 [142 kB]
 Get:2 http://archive.ubuntu.com/ubuntu focal-updates/universe amd64 libjq1 amd64 1.6-1ubuntu0.20.04.1 [121 kB]
 Get:3 http://archive.ubuntu.com/ubuntu focal-updates/universe amd64 jq amd64 1.6-1ubuntu0.20.04.1 [50.2 kB]
-Fetched 313 kB in 0s (645 kB/s)
+Fetched 313 kB in 0s (694 kB/s)  
 Selecting previously unselected package libonig5:amd64.
 (Reading database ... 41558 files and directories currently installed.)
 Preparing to unpack .../libonig5_6.9.4-1_amd64.deb ...
@@ -244,13 +243,11 @@ Setting up libjq1:amd64 (1.6-1ubuntu0.20.04.1) ...
 Setting up jq (1.6-1ubuntu0.20.04.1) ...
 Processing triggers for man-db (2.9.1-1) ...
 Processing triggers for libc-bin (2.31-0ubuntu9.2) ...
-root@vagrant:~# 
 ```
 > Делаем экспорт переменной среды для vault CLI для адресации к серверу Vault и переменной среды для CLI хранилища для аутентификации на сервере Vault.
 ```bash
-root@vagrant:~# export VAULT_ADDR=http://127.0.0.1:8200
-root@vagrant:~# export VAULT_TOKEN=root
-root@vagrant:~# 
+vagrant@vagrant:~# export VAULT_ADDR=http://127.0.0.1:8200
+vagrant@vagrant:~# export VAULT_TOKEN=root
 ```
 > Настроим механизм секретов pki с временем жизни раз в месяц (720 часов)
 ```bash
