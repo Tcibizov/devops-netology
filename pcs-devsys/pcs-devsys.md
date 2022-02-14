@@ -618,6 +618,24 @@ vOHw7rMPyy6r27uFTiILyW9QLqs+rnEM4XA4ChEE1dhDv9uY0vwss1AwKXOjuEAO
 G4sCkZ9OD6dwDV2glQwskp3FMnU9PtaDcKrubZSox7BwQi/Z5QuPQQ==
 -----END RSA PRIVATE KEY-----
 ```
+> В файл конфигурации дефолтного сайта сервера nginx добавляем строки:
+```bash
+root@vagrant:/# cat /etc/nginx/sites-available/default
+server {
+        listen 80 default_server;
+        listen [::]:80 default_server;
+        listen 443 ssl default_server;
+        ssl_certificate     /etc/ssl/test.example.com.cert;
+        ssl_certificate_key /etc/ssl/test.example.com.cert;
+        root /var/www/html;
+        index index.html index.htm index.nginx-debian.html;
+        server_name _;
+        location / {
+                try_files $uri $uri/ =404;
+        }
+}
+```
+
 8. Откройте в браузере на хосте https адрес страницы, которую обслуживает сервер nginx.
 9. Создайте скрипт, который будет генерировать новый сертификат в vault:
   - генерируем новый сертификат так, чтобы не переписывать конфиг nginx;
