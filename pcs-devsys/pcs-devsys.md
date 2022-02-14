@@ -546,7 +546,7 @@ Feb 14 10:39:40 vagrant systemd[1]: Started A high performance web server and a 
   - можно использовать и другой html файл, сделанный вами;
 > Ответ: Сохраняем полученный сертификат и закрытый ключ.
 ```bash
-root@vagrant:/etc/ssl# cat test.example.com.cert
+root@vagrant:/etc/ssl# cat test.example.com.crt
  -----BEGIN CERTIFICATE-----
 MIIDvzCCAqegAwIBAgIUPqE+7hsQjQbN6Pwn7tIzgasWNpEwDQYJKoZIhvcNAQEL
 BQAwFjEUMBIGA1UEAxMLZXhhbXBsZS5jb20wHhcNMjIwMjE0MDk0MDE1WhcNMjIw
@@ -590,6 +590,7 @@ HbzjxtoVwlAxvU2L7pOUx+pa4UQCS4P2FBK9p5TDtWPc46Vwb1o/Wv/CTc+Y0p1K
 awUoDKprqXMy/0ycWUp3Q/0k7FU+xIco5PmqnjEx15bq0GEpqRsKLShwDggTGN/F
 LYfjQ/qtjC3D
 -----END CERTIFICATE-----
+root@vagrant:/etc/ssl# cat test.example.com.key
 -----BEGIN RSA PRIVATE KEY-----
 MIIEpAIBAAKCAQEAmrTQoLtaQU07QcCYZME3hIWxS2eQmfUqtwkHLt2CNyV7NI5S
 34R7BmZnCKNe5aCpYVmckb0Ji7f9+5ixMlkINOG6lBDd67x9/MOozYiIIBAiX59Y
@@ -625,8 +626,8 @@ server {
         listen 80 default_server;
         listen [::]:80 default_server;
         listen 443 ssl default_server;
-        ssl_certificate     /etc/ssl/test.example.com.cert;
-        ssl_certificate_key /etc/ssl/test.example.com.cert;
+        ssl_certificate     /etc/ssl/test.example.com.crt;
+        ssl_certificate_key /etc/ssl/test.example.com.key;
         root /var/www/html;
         index index.html index.htm index.nginx-debian.html;
         server_name _;
@@ -634,6 +635,12 @@ server {
                 try_files $uri $uri/ =404;
         }
 }
+```
+> Проверяем:
+```bash
+root@vagrant:/etc/nginx/sites-available# nginx -t
+nginx: the configuration file /etc/nginx/nginx.conf syntax is ok
+nginx: configuration file /etc/nginx/nginx.conf test is successful
 ```
 
 8. Откройте в браузере на хосте https адрес страницы, которую обслуживает сервер nginx.
