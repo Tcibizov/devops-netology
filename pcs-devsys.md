@@ -51,8 +51,6 @@ To                         Action      From
 443                        ALLOW IN    Anywhere                  
 22 (v6)                    ALLOW IN    Anywhere (v6)             
 443 (v6)                   ALLOW IN    Anywhere (v6)             
-
-root@vagrant:~# 
 ```
 
 3. Установите hashicorp vault ([инструкция по ссылке](https://learn.hashicorp.com/tutorials/vault/getting-started-install?in=vault/getting-started#install-vault)).
@@ -60,7 +58,7 @@ root@vagrant:~#
 ```bash
 vagrant@vagrant:~# curl -fsSL https://apt.releases.hashicorp.com/gpg | sudo apt-key add
 OK
-root@vagrant:~# sudo apt-add-repository "deb [arch=amd64] https://apt.releases.hashicorp.com $(lsb_release -cs) main"
+vagrant@vagrant:~# sudo apt-add-repository "deb [arch=amd64] https://apt.releases.hashicorp.com $(lsb_release -cs) main"
 Hit:1 http://archive.ubuntu.com/ubuntu focal InRelease
 Get:2 http://archive.ubuntu.com/ubuntu focal-updates InRelease [114 kB]                                  
 Get:3 http://archive.ubuntu.com/ubuntu focal-backports InRelease [108 kB]                                
