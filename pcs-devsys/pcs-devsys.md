@@ -379,18 +379,16 @@ serial_number       3e:a1:3e:ee:1b:10:8d:06:cd:e8:fc:27:ee:d2:33:81:ab:16:36:91
 
 5. Установите корневой сертификат созданного центра сертификации в доверенные в хостовой системе.
 > Ответ:
+![gcr-viewer](CA_cert.png)
 ```bash
-alex@debian:~/vagrant$ gcr-viewer CA_cert.crt
-![image](https://github.com/Tcibizov/devops-netology/blob/53cfb1d564f7d32143121bc892924938b41cf689/pcs-devsys/CA_cert.png)
-root@debian:/home/alex/vagrant# sudo cp ./CA_cert.crt /usr/local/share/ca-certificates/
-root@debian:/home/alex/vagrant# sudo update-ca-certificates
+root@debian:/home/alex# cp ./CA_cert.crt /usr/local/share/ca-certificates/
+root@debian:/home/alex# sudo update-ca-certificates
 Updating certificates in /etc/ssl/certs...
-1 added, 0 removed; done.
+0 added, 0 removed; done.
 Running hooks in /etc/ca-certificates/update.d...
 done.
-root@debian:/home/alex/vagrant# awk -v cmd='openssl x509 -noout -subject' ' /BEGIN/{close(cmd)};{print | cmd}' < /etc/ssl/certs/ca-certificates.crt | grep -i example.com
+rroot@debian:/home/alex# awk -v cmd='openssl x509 -noout -subject' ' /BEGIN/{close(cmd)};{print | cmd}' < /etc/ssl/certs/ca-certificates.crt | grep -i example.com
 subject=CN = example.com
-
 ```
 7. Установите nginx.
 8. По инструкции ([ссылка](https://nginx.org/en/docs/http/configuring_https_servers.html)) настройте nginx на https, используя ранее подготовленный сертификат:
