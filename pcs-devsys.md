@@ -283,7 +283,19 @@ LYfjQ/qtjC3D
 ```
 > Конфигурируем CA и CRL ссылки(URLs):
 ```bash
-
+vagrant@vagrant:~$ vault write pki/config/urls \
+> issuing_certificates="$VAULT_ADDR/v1/pki/ca" \
+> crl_distribution_points="$VAULT_ADDR/v1/pki/crl"
+Success! Data written to: pki/config/urls
+```
+> Создадим роль:
+```bash
+vagrant@vagrant:~$ vault write pki/roles/example-dot-com \
+> allowed_domains="example.com" \
+> allow_subdomains=true \
+> allow_bare_domains=true \
+> max_ttl="720h"
+Success! Data written to: pki/roles/example-dot-com
 ```
 
 5. Установите корневой сертификат созданного центра сертификации в доверенные в хостовой системе.
