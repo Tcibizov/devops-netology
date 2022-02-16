@@ -644,9 +644,30 @@ nginx: configuration file /etc/nginx/nginx.conf test is successful
 ```
 
 8. Откройте в браузере на хосте https адрес страницы, которую обслуживает сервер nginx.
+> Ответ:
+> 
 9. Создайте скрипт, который будет генерировать новый сертификат в vault:
   - генерируем новый сертификат так, чтобы не переписывать конфиг nginx;
   - перезапускаем nginx для применения нового сертификата.
+> Ответ: Создаем cert_refresh.sh
+```bash
+#!/bin/bash
+#!/usr/bin/env bash
+
+export VAULT_ADDR=http://127.0.0.1:8200
+export VAULT_TOKEN=root
+
+REQUEST=$( vault write -format=json pki/issue/example-dot-com common_name="test.example.com" ttl="720h")
+SITE_CRT=$(echo $REQUEST | jq .data.certificate | tr -d \")
+ISS_CA=$(echo $REQUEST | jq .data.issuing_ca | tr -d \")
+SITE_KEY=$(echo $REQUEST | jq .data.private_key | tr -d \")
+CERT_FILE=${SITE_CRT}\\n${ISS_CA}\\n${SITE_KEY}
+echo -e $CERT_FILE > /etc/ssl/test.example.com.cert
+systemctl restart nginx
+```
+```bash
+chmod +x /etc/ssl/cert_refresh.sh
+```
 10. Поместите скрипт в crontab, чтобы сертификат обновлялся какого-то числа каждого месяца в удобное для вас время.
 
 ## Результат
