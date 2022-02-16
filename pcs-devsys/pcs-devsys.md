@@ -667,6 +667,8 @@ systemctl restart nginx
 ```
 ```bash
 chmod +x /etc/ssl/cert_refresh.sh
+root@vagrant:~# cd /etc/ssl
+root@vagrant:/etc/ssl# ./cert_refresh.sh
 ```
 10. Поместите скрипт в crontab, чтобы сертификат обновлялся какого-то числа каждого месяца в удобное для вас время.
 
