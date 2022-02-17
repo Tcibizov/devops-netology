@@ -299,7 +299,7 @@ Success! Data written to: pki/roles/example-dot-com
 ```
 > Выпускаем сертификаты для сервера:
 ```bash
-vagrant@vagrant:~$ vault write pki/issue/example-dot-com common_name="test.example.com" ttl="24h"
+vagrant@vagrant:~$ vault write pki/issue/example-dot-com common_name="test.example.com" ttl="720"
 Key                 Value
 ---                 -----
 certificate         -----BEGIN CERTIFICATE-----
