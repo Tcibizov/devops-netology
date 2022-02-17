@@ -382,7 +382,7 @@ serial_number       3e:a1:3e:ee:1b:10:8d:06:cd:e8:fc:27:ee:d2:33:81:ab:16:36:91
 > ![gcr-viewer](CA_cert.png)
 ```bash
 root@debian:/home/alex# cp ./CA_cert.crt /usr/local/share/ca-certificates/
-root@debian:/home/alex# sudo update-ca-certificates
+root@debian:/home/alex# update-ca-certificates
 Updating certificates in /etc/ssl/certs...
 0 added, 0 removed; done.
 Running hooks in /etc/ca-certificates/update.d...
