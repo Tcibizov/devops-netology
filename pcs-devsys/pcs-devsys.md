@@ -30,7 +30,7 @@ Building dependency tree
 Reading state information... Done
 ufw is already the newest version (0.36-6).
 0 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.
-root@vagrant:~# sudo ufw allow 22
+vagrant@vagrant:~# sudo ufw allow 22
 Rules updated
 Rules updated (v6)
 vagrant@vagrant:~# sudo ufw allow 443
