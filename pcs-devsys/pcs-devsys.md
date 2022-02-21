@@ -541,8 +541,8 @@ vagrant@vagrant:~$ systemctl status nginx
              ├─14803 nginx: worker process
              └─14804 nginx: worker process
 
-Feb 14 10:39:39 vagrant systemd[1]: Starting A high performance web server and a reverse proxy server...
-Feb 14 10:39:40 vagrant systemd[1]: Started A high performance web server and a reverse proxy server.
+Feb 21 18:39:39 vagrant systemd[1]: Starting A high performance web server and a reverse proxy server...
+Feb 21 18:39:40 vagrant systemd[1]: Started A high performance web server and a reverse proxy server.
 ```
 7. По инструкции ([ссылка](https://nginx.org/en/docs/http/configuring_https_servers.html)) настройте nginx на https, используя ранее подготовленный сертификат:
   - можно использовать стандартную стартовую страницу nginx для демонстрации работы сервера;
@@ -650,7 +650,7 @@ nginx: configuration file /etc/nginx/nginx.conf test is successful
 
 8. Откройте в браузере на хосте https адрес страницы, которую обслуживает сервер nginx.
 > Ответ:
-> 
+>![nginx](nginx.png)
 9. Создайте скрипт, который будет генерировать новый сертификат в vault:
   - генерируем новый сертификат так, чтобы не переписывать конфиг nginx;
   - перезапускаем nginx для применения нового сертификата.
