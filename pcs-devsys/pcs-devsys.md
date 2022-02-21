@@ -382,7 +382,7 @@ serial_number       79:bb:cd:9a:b1:1c:40:c3:ea:a6:06:61:8a:27:4d:e9:ec:ee:57:45
 
 5. Установите корневой сертификат созданного центра сертификации в доверенные в хостовой системе.
 > Ответ:
-> ![gcr-viewer](CA_cert.png)
+> ![gcr-viewer](CA_crt.png)
 ```bash
 root@debian:/home/alex# cp ./CA_cert.crt /usr/local/share/ca-certificates/
 root@debian:/home/alex# sudo update-ca-certificates
