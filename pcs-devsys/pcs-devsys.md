@@ -147,51 +147,51 @@ vagrant@vagrant:~$ vault server -dev -dev-root-token-id root
 
 ==> Vault server started! Log data will stream in below:
 
-2022-02-14T09:26:22.418Z [INFO]  proxy environment: http_proxy="\"\"" https_proxy="\"\"" no_proxy="\"\""
-2022-02-14T09:26:22.424Z [WARN]  no `api_addr` value specified in config or in VAULT_API_ADDR; falling back to detection if possible, but this value should be manually set
-2022-02-14T09:26:22.433Z [INFO]  core: Initializing VersionTimestamps for core
-2022-02-14T09:26:22.439Z [INFO]  core: security barrier not initialized
-2022-02-14T09:26:22.440Z [INFO]  core: security barrier initialized: stored=1 shares=1 threshold=1
-2022-02-14T09:26:22.454Z [INFO]  core: post-unseal setup starting
-2022-02-14T09:26:22.459Z [INFO]  core: loaded wrapping token key
-2022-02-14T09:26:22.460Z [INFO]  core: Recorded vault version: vault version=1.9.3 upgrade time="2022-02-14 09:26:22.459730278 +0000 UTC m=+1.135778697"
-2022-02-14T09:26:22.462Z [INFO]  core: successfully setup plugin catalog: plugin-directory="\"\""
-2022-02-14T09:26:22.463Z [INFO]  core: no mounts; adding default mount table
-2022-02-14T09:26:22.572Z [INFO]  core: successfully mounted backend: type=cubbyhole path=cubbyhole/
-2022-02-14T09:26:22.574Z [INFO]  core: successfully mounted backend: type=system path=sys/
-2022-02-14T09:26:22.578Z [INFO]  core: successfully mounted backend: type=identity path=identity/
-2022-02-14T09:26:22.638Z [INFO]  core: successfully enabled credential backend: type=token path=token/
-2022-02-14T09:26:22.639Z [INFO]  rollback: starting rollback manager
-2022-02-14T09:26:22.640Z [INFO]  core: restoring leases
-2022-02-14T09:26:22.645Z [INFO]  expiration: lease restore complete
-2022-02-14T09:26:22.671Z [INFO]  identity: entities restored
-2022-02-14T09:26:22.671Z [INFO]  identity: groups restored
-2022-02-14T09:26:22.671Z [INFO]  core: post-unseal setup complete
-2022-02-14T09:26:22.675Z [INFO]  core: root token generated
-2022-02-14T09:26:22.675Z [INFO]  core: pre-seal teardown starting
-2022-02-14T09:26:22.676Z [INFO]  rollback: stopping rollback manager
-2022-02-14T09:26:22.676Z [INFO]  core: pre-seal teardown complete
-2022-02-14T09:26:22.678Z [INFO]  core.cluster-listener.tcp: starting listener: listener_address=127.0.0.1:8201
-2022-02-14T09:26:22.678Z [INFO]  core.cluster-listener: serving cluster requests: cluster_listen_address=127.0.0.1:8201
-2022-02-14T09:26:22.679Z [INFO]  core: post-unseal setup starting
-2022-02-14T09:26:22.679Z [INFO]  core: loaded wrapping token key
-2022-02-14T09:26:22.679Z [INFO]  core: successfully setup plugin catalog: plugin-directory="\"\""
-2022-02-14T09:26:22.687Z [INFO]  core: successfully mounted backend: type=system path=sys/
-2022-02-14T09:26:22.691Z [INFO]  core: successfully mounted backend: type=identity path=identity/
-2022-02-14T09:26:22.691Z [INFO]  core: successfully mounted backend: type=cubbyhole path=cubbyhole/
-2022-02-14T09:26:22.706Z [INFO]  core: successfully enabled credential backend: type=token path=token/
-2022-02-14T09:26:22.708Z [INFO]  rollback: starting rollback manager
-2022-02-14T09:26:22.710Z [INFO]  core: restoring leases
-2022-02-14T09:26:22.712Z [INFO]  expiration: lease restore complete
-2022-02-14T09:26:22.716Z [INFO]  identity: entities restored
-2022-02-14T09:26:22.716Z [INFO]  identity: groups restored
-2022-02-14T09:26:22.716Z [INFO]  core: post-unseal setup complete
-2022-02-14T09:26:22.716Z [INFO]  core: vault is unsealed
-2022-02-14T09:26:22.728Z [INFO]  expiration: revoked lease: lease_id=auth/token/root/h79f798c2a532a590d7c82b4b8acc223c14d2f68a0886e85cbdfedd11c8f30655
-2022-02-14T09:26:22.769Z [INFO]  core: successful mount: namespace="\"\"" path=secret/ type=kv
-2022-02-14T09:26:22.772Z [INFO]  secrets.kv.kv_3de9e3fe: collecting keys to upgrade
-2022-02-14T09:26:22.772Z [INFO]  secrets.kv.kv_3de9e3fe: done collecting keys: num_keys=1
-2022-02-14T09:26:22.772Z [INFO]  secrets.kv.kv_3de9e3fe: upgrading keys finished
+2022-02-21T17:07:17.440Z [INFO]  proxy environment: http_proxy="\"\"" https_proxy="\"\"" no_proxy="\"\""
+2022-02-21T17:07:17.444Z [WARN]  no `api_addr` value specified in config or in VAULT_API_ADDR; falling back to detection if possible, but this value should be manually set
+2022-02-21T17:07:17.452Z [INFO]  core: Initializing VersionTimestamps for core
+2022-02-21T17:07:17.457Z [INFO]  core: security barrier not initialized
+2022-02-21T17:07:17.458Z [INFO]  core: security barrier initialized: stored=1 shares=1 threshold=1
+2022-02-21T17:07:17.461Z [INFO]  core: post-unseal setup starting
+2022-02-21T17:07:17.465Z [INFO]  core: loaded wrapping token key
+2022-02-21T17:07:17.466Z [INFO]  core: Recorded vault version: vault version=1.9.3 upgrade time="2022-02-21 17:07:17.465688752 +0000 UTC m=+1.014392230"
+2022-02-21T17:07:17.467Z [INFO]  core: successfully setup plugin catalog: plugin-directory="\"\""
+2022-02-21T17:07:17.467Z [INFO]  core: no mounts; adding default mount table
+2022-02-21T17:07:17.554Z [INFO]  core: successfully mounted backend: type=cubbyhole path=cubbyhole/
+2022-02-21T17:07:17.556Z [INFO]  core: successfully mounted backend: type=system path=sys/
+2022-02-21T17:07:17.559Z [INFO]  core: successfully mounted backend: type=identity path=identity/
+2022-02-21T17:07:17.600Z [INFO]  core: successfully enabled credential backend: type=token path=token/
+2022-02-21T17:07:17.601Z [INFO]  core: restoring leases
+2022-02-21T17:07:17.619Z [INFO]  rollback: starting rollback manager
+2022-02-21T17:07:17.627Z [INFO]  expiration: lease restore complete
+2022-02-21T17:07:17.633Z [INFO]  identity: entities restored
+2022-02-21T17:07:17.633Z [INFO]  identity: groups restored
+2022-02-21T17:07:17.634Z [INFO]  core: post-unseal setup complete
+2022-02-21T17:07:17.635Z [INFO]  core: root token generated
+2022-02-21T17:07:17.635Z [INFO]  core: pre-seal teardown starting
+2022-02-21T17:07:17.635Z [INFO]  rollback: stopping rollback manager
+2022-02-21T17:07:17.636Z [INFO]  core: pre-seal teardown complete
+2022-02-21T17:07:17.638Z [INFO]  core.cluster-listener.tcp: starting listener: listener_address=127.0.0.1:8201
+2022-02-21T17:07:17.639Z [INFO]  core.cluster-listener: serving cluster requests: cluster_listen_address=127.0.0.1:8201
+2022-02-21T17:07:17.641Z [INFO]  core: post-unseal setup starting
+2022-02-21T17:07:17.641Z [INFO]  core: loaded wrapping token key
+2022-02-21T17:07:17.642Z [INFO]  core: successfully setup plugin catalog: plugin-directory="\"\""
+2022-02-21T17:07:17.662Z [INFO]  core: successfully mounted backend: type=system path=sys/
+2022-02-21T17:07:17.670Z [INFO]  core: successfully mounted backend: type=identity path=identity/
+2022-02-21T17:07:17.670Z [INFO]  core: successfully mounted backend: type=cubbyhole path=cubbyhole/
+2022-02-21T17:07:17.691Z [INFO]  core: successfully enabled credential backend: type=token path=token/
+2022-02-21T17:07:17.692Z [INFO]  rollback: starting rollback manager
+2022-02-21T17:07:17.695Z [INFO]  core: restoring leases
+2022-02-21T17:07:17.695Z [INFO]  expiration: lease restore complete
+2022-02-21T17:07:17.699Z [INFO]  identity: entities restored
+2022-02-21T17:07:17.699Z [INFO]  identity: groups restored
+2022-02-21T17:07:17.700Z [INFO]  core: post-unseal setup complete
+2022-02-21T17:07:17.700Z [INFO]  core: vault is unsealed
+2022-02-21T17:07:17.713Z [INFO]  expiration: revoked lease: lease_id=auth/token/root/hb4197ba5f52fb7ba8c32778f7206c6b862e7697695dbc5fe90ec102d8292ab7c
+2022-02-21T17:07:17.764Z [INFO]  core: successful mount: namespace="\"\"" path=secret/ type=kv
+2022-02-21T17:07:17.771Z [INFO]  secrets.kv.kv_e8eeac22: collecting keys to upgrade
+2022-02-21T17:07:17.771Z [INFO]  secrets.kv.kv_e8eeac22: done collecting keys: num_keys=1
+2022-02-21T17:07:17.771Z [INFO]  secrets.kv.kv_e8eeac22: upgrading keys finished
 WARNING! dev mode is enabled! In this mode, Vault runs entirely in-memory
 and starts unsealed with a single unseal key. The root token is already
 authenticated to the CLI, so you can immediately begin using Vault.
@@ -203,10 +203,13 @@ You may need to set the following environment variable:
 The unseal key and root token are displayed below in case you want to
 seal/unseal the Vault or re-authenticate.
 
-Unseal Key: Wbp6oA4hrDgxT3dPDkdvusd3BrD6LQqTkz9kTl/Mmg4=
+Unseal Key: akPkx+yTEAxIWjjCqARPtpZgPrc1TfDr2uIDHNB9vgs=
 Root Token: root
 
 Development mode should NOT be used in production installations!
+
+2022-02-21T17:10:26.697Z [INFO]  core: successful mount: namespace="\"\"" path=pki/ type=pki
+2022-02-21T17:10:38.271Z [INFO]  core: mount tuning of leases successful: path=pki/
 ```
 > Устанавливаем JSON:
 ```bash
@@ -299,53 +302,82 @@ Success! Data written to: pki/roles/example-dot-com
 ```
 > Выпускаем сертификаты для сервера:
 ```bash
-vagrant@vagrant:~$ vault write pki/root/generate/internal \
-> common_name=example.com \
->  ttl=720h
-Key              Value
----              -----
-certificate      -----BEGIN CERTIFICATE-----
-MIIDNTCCAh2gAwIBAgIUWeQyiB/Wo0EnT8S+7hBnP/G26HowDQYJKoZIhvcNAQEL
-BQAwFjEUMBIGA1UEAxMLZXhhbXBsZS5jb20wHhcNMjIwMjIxMDkxNjE0WhcNMjIw
-MzIzMDkxNjQzWjAWMRQwEgYDVQQDEwtleGFtcGxlLmNvbTCCASIwDQYJKoZIhvcN
-AQEBBQADggEPADCCAQoCggEBANscV5p5eWIEn7MQgjnpx57JzAw7sxR0mpKUpvO2
-yXr8cc73+M6rfBdb5HhSYsKO4L+gdSyrd5i82KPP7om/NVc1k1RecY82Gaxnr/jq
-QZOC/xccV4itvCxMQt23vdiw9U5ej1R2X6ZrMU285utcEQV3/XoE3a05MhgJl1PT
-gyPQ56lWnko+TEQo/79gXXiYbnqp0XXW0Ika4UAEi1g+vI9N7/HcU6B9BcN3LIuf
-gLHym6g8lH8WZeCG9tTekNmyjmJpzAgzPAl+k4tQITtlJrF7IQAy77s0572W7hfB
-mZv1PCmalwT4a3voJBbG1I7YrIAx07h0YCiPoQWzxasLhx0CAwEAAaN7MHkwDgYD
-VR0PAQH/BAQDAgEGMA8GA1UdEwEB/wQFMAMBAf8wHQYDVR0OBBYEFI5y/aWRWmQz
-GcUa+LdC48CFRq47MB8GA1UdIwQYMBaAFI5y/aWRWmQzGcUa+LdC48CFRq47MBYG
-A1UdEQQPMA2CC2V4YW1wbGUuY29tMA0GCSqGSIb3DQEBCwUAA4IBAQB/UcGEe3JX
-7Zcidn445UUV+isbS+YjHucQR76p/rD8VvW73faNKDL5YPS9l7Yty+zeMsgSrCoj
-yXWPGVNIxWPJZo8UrfaOVT2x7DsgbREHHVvIGE/UTtaUW95OaE/Y3AcyE4S9fnpj
-FyQTW5YS7QfwTpBfdUj1MZWeOnrt26zMQ4SQJpncph0QkHtQCTxLEk9lFjYjmjvC
-IZ2D6mMfY5TIlWdwlM7OtLkDDaI5DcVbZfKBX9609KJUrtyhoc1W8dHaziBokZE7
-0ORg4f0qs5gQ+TnhNzH0+HMzG9Mv+xZ83HIi0V/QQmdUThnzVUI/3Uza7dDvtTBM
-bUbYO/x74wLK
+vagrant@vagrant:~$ vault write pki/issue/example-dot-com common_name="test.example.com" ttl="24h"
+Key                 Value
+---                 -----
+certificate         -----BEGIN CERTIFICATE-----
+MIIDvzCCAqegAwIBAgIUebvNmrEcQMPqpgZhiidN6ezuV0UwDQYJKoZIhvcNAQEL
+BQAwFjEUMBIGA1UEAxMLZXhhbXBsZS5jb20wHhcNMjIwMjIxMTcxODM0WhcNMjIw
+MjIyMTcxOTAzWjAbMRkwFwYDVQQDExB0ZXN0LmV4YW1wbGUuY29tMIIBIjANBgkq
+hkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAq00L07udOIo1QUMZE+HHqQ7HG6nbU0b2
+57TCJ6sCxhMrm2vRbgISiXuCHLh+OBS4FWLADdQcehNGE1WUrS9eZG/etRTa9Fkp
+bKD2luhtMy1hMiU42DndP5Rq5zAYPxyIvc/eRIElt2wUXixbaTGSWaR9TfiEvX36
+zHE2RdrbqWEvO+wfgDAfXEhp8iA+KtsNRvZnAWmBGKF/O7zAtTrg5NyWLk5MmLnO
+YVQq3XTEYVrswwZVugqMxi4rwvut/EIHh62Lh9zL8jnzm70nBqsd/Vy1EouieIoq
+MHesI8XcOQ6ZRX3shr3ZLXkwFEmwsHPsHwCvLK82yPacxKZwEmEozwIDAQABo4H/
+MIH8MA4GA1UdDwEB/wQEAwIDqDAdBgNVHSUEFjAUBggrBgEFBQcDAQYIKwYBBQUH
+AwIwHQYDVR0OBBYEFH0c5pR2X1CXjhZn7XqEmGLSyDPNMB8GA1UdIwQYMBaAFD1a
+93dyM4bo8Te5x6WdpyBVFrJfMDsGCCsGAQUFBwEBBC8wLTArBggrBgEFBQcwAoYf
+aHR0cDovLzEyNy4wLjAuMTo4MjAwL3YxL3BraS9jYTAbBgNVHREEFDASghB0ZXN0
+LmV4YW1wbGUuY29tMDEGA1UdHwQqMCgwJqAkoCKGIGh0dHA6Ly8xMjcuMC4wLjE6
+ODIwMC92MS9wa2kvY3JsMA0GCSqGSIb3DQEBCwUAA4IBAQBXVfBKYbEMstr/VUsC
+QC2EEeuXUZ+IL+TTksbO2uvE3t/C65POT3Juo7DL2z9oWe5FDpBdX+BHCc3Mfaas
+Cb434/Cwv3YdHkgKZI1mO3CqJruFwKeNU0XlJ39cnoAebHshgbTuciXtitIBCkMI
+VYWcXtS9gmGYT6qr5i6bw8c6UYM5gCvM79Qwhi91CiyLJ5hyRGCn/pNrBTpSKbeq
+XWFkYhqM9VtXUe1yKWxIrFMdGPdRLwDc3wzfywrfPjqqnlWdSkTUnVMnHPbJIJqN
+GBFO2N/67vFU5x1D1cr+tvoI0ndqiJJcXpoRYN725ubUeOjzirgyZLWGkLqROppJ
+ijUt
 -----END CERTIFICATE-----
-expiration       1648027003
-issuing_ca       -----BEGIN CERTIFICATE-----
-MIIDNTCCAh2gAwIBAgIUWeQyiB/Wo0EnT8S+7hBnP/G26HowDQYJKoZIhvcNAQEL
-BQAwFjEUMBIGA1UEAxMLZXhhbXBsZS5jb20wHhcNMjIwMjIxMDkxNjE0WhcNMjIw
-MzIzMDkxNjQzWjAWMRQwEgYDVQQDEwtleGFtcGxlLmNvbTCCASIwDQYJKoZIhvcN
-AQEBBQADggEPADCCAQoCggEBANscV5p5eWIEn7MQgjnpx57JzAw7sxR0mpKUpvO2
-yXr8cc73+M6rfBdb5HhSYsKO4L+gdSyrd5i82KPP7om/NVc1k1RecY82Gaxnr/jq
-QZOC/xccV4itvCxMQt23vdiw9U5ej1R2X6ZrMU285utcEQV3/XoE3a05MhgJl1PT
-gyPQ56lWnko+TEQo/79gXXiYbnqp0XXW0Ika4UAEi1g+vI9N7/HcU6B9BcN3LIuf
-gLHym6g8lH8WZeCG9tTekNmyjmJpzAgzPAl+k4tQITtlJrF7IQAy77s0572W7hfB
-mZv1PCmalwT4a3voJBbG1I7YrIAx07h0YCiPoQWzxasLhx0CAwEAAaN7MHkwDgYD
-VR0PAQH/BAQDAgEGMA8GA1UdEwEB/wQFMAMBAf8wHQYDVR0OBBYEFI5y/aWRWmQz
-GcUa+LdC48CFRq47MB8GA1UdIwQYMBaAFI5y/aWRWmQzGcUa+LdC48CFRq47MBYG
-A1UdEQQPMA2CC2V4YW1wbGUuY29tMA0GCSqGSIb3DQEBCwUAA4IBAQB/UcGEe3JX
-7Zcidn445UUV+isbS+YjHucQR76p/rD8VvW73faNKDL5YPS9l7Yty+zeMsgSrCoj
-yXWPGVNIxWPJZo8UrfaOVT2x7DsgbREHHVvIGE/UTtaUW95OaE/Y3AcyE4S9fnpj
-FyQTW5YS7QfwTpBfdUj1MZWeOnrt26zMQ4SQJpncph0QkHtQCTxLEk9lFjYjmjvC
-IZ2D6mMfY5TIlWdwlM7OtLkDDaI5DcVbZfKBX9609KJUrtyhoc1W8dHaziBokZE7
-0ORg4f0qs5gQ+TnhNzH0+HMzG9Mv+xZ83HIi0V/QQmdUThnzVUI/3Uza7dDvtTBM
-bUbYO/x74wLK
+expiration          1645550343
+issuing_ca          -----BEGIN CERTIFICATE-----
+MIIDNTCCAh2gAwIBAgIUAVQEQeXCrFmaWpRrv/NwjDhIMOEwDQYJKoZIhvcNAQEL
+BQAwFjEUMBIGA1UEAxMLZXhhbXBsZS5jb20wHhcNMjIwMjIxMTcxMDQ3WhcNMjIw
+MzIzMTcxMTE3WjAWMRQwEgYDVQQDEwtleGFtcGxlLmNvbTCCASIwDQYJKoZIhvcN
+AQEBBQADggEPADCCAQoCggEBAM1KUXMbkiqq59VickfQBK3ICNCDnPdwjTlxCRj8
+8EL4vobFZ5hwGXPoufzQL9VABwROxhT5DtCjZY/NNerbr+FxY6kAgZ95o6Eq9qnX
+sDUpPZt4xYUgDq8eL+jGuWEmGknBPJkXrRRX34W0Qtx4KvpfSdth1y4IpGGl/9Rd
+CaljmxFHKiUiQkbvVSVcEUrkqM8EDSMKt/ovmQwyFBT8x6mrM/f04a6s5I/A0sCN
+7Yr3KlPiHKA7PkVhzoyeq3O9I9om6vl8yHgER0PseKwHbZ/OeSXtqAtskm09lhyC
+7DqGExT4hY2ASBMV00ocVne03XDkoiCeP9mQdNukYD7R6/sCAwEAAaN7MHkwDgYD
+VR0PAQH/BAQDAgEGMA8GA1UdEwEB/wQFMAMBAf8wHQYDVR0OBBYEFD1a93dyM4bo
+8Te5x6WdpyBVFrJfMB8GA1UdIwQYMBaAFD1a93dyM4bo8Te5x6WdpyBVFrJfMBYG
+A1UdEQQPMA2CC2V4YW1wbGUuY29tMA0GCSqGSIb3DQEBCwUAA4IBAQC3ietgQj/L
+N1kWppYFrxetrbrug2JtQ/1THxHfcjS72ABr1tbiqZQQxLwRCtxTWQo18YxqTOsI
+Eeu2uR4/xb6q0yLiT45LhrnQ2LJCnssgfU4KAYzZGVh0fbyd00WmWgxSMp7AIWpZ
+zrv2K42AWsdQ4bBKx4qO0JNXXzujXJjbq76ZX203tGLdfK+CMoyQWXcPHODfAG7h
+57EmV1QN8q01fiJ7xjqGi1tvSo+xeGmbcpJZveLtuuBn2ER0L5yjbqHITBnuQYvK
+C8iExBRmykuXTlkKgChOvYqByreHiVkmmrEcq8TihO7paFcpxIBTpblPFkCdNzlF
+UmsaIcMpycYh
 -----END CERTIFICATE-----
-serial_number    59:e4:32:88:1f:d6:a3:41:27:4f:c4:be:ee:10:67:3f:f1:b6:e8:7a
+private_key         -----BEGIN RSA PRIVATE KEY-----
+MIIEpAIBAAKCAQEAq00L07udOIo1QUMZE+HHqQ7HG6nbU0b257TCJ6sCxhMrm2vR
+bgISiXuCHLh+OBS4FWLADdQcehNGE1WUrS9eZG/etRTa9FkpbKD2luhtMy1hMiU4
+2DndP5Rq5zAYPxyIvc/eRIElt2wUXixbaTGSWaR9TfiEvX36zHE2RdrbqWEvO+wf
+gDAfXEhp8iA+KtsNRvZnAWmBGKF/O7zAtTrg5NyWLk5MmLnOYVQq3XTEYVrswwZV
+ugqMxi4rwvut/EIHh62Lh9zL8jnzm70nBqsd/Vy1EouieIoqMHesI8XcOQ6ZRX3s
+hr3ZLXkwFEmwsHPsHwCvLK82yPacxKZwEmEozwIDAQABAoIBAQCOJtymsy1QCxkQ
+dE7uOdHHUBUYtsbj/6LLOyxXYMlnd+cbDcj4wk2Bu3WIwe00OrVcQdtgXmHXSAFB
+8CX15bYuIMuud4UPeqIunBClwHFGI+VhiJP4k2Qv68ke2sF0Ngifg01OieGzqcPp
+NmQREmsBasf1GUOGQHIMj/Ja27ingDvz4YghYpdL4wHrRoP38rwoN1UUCcwo4ldn
+H0Va8Xngk2sLR9jxRi/i6jq9OMeItSxXwSApu3RvVYZBl4uQalUB1q5STOVcSabH
+o9aZqVyl0r8NrSnnnSAiuX19Dlu88MX7FBPp3oKGvTLuFoIxTyMWHT3/Uy/QB04g
+IrZVh2/JAoGBANEJctfNLaN6+vXi8VImpg2ksAjv179J1m7387MLpiU+Ad5DZKWa
+LYUSaTDAxldCceOgtjNpAEuNx093RVHVdY8Dlt1Z0x+fY+0i4w0YJVMjfyFE85sQ
+2rGTG25l8e6rdaJxi71zXzjidhyFJaE96vAld+KN73NzGDWIcAuzNK7lAoGBANHJ
+QHp9eLc1BxnLB9scWzOYv/xI3X1tlmv6MKzMDDnC+A4sZRGe7Pw2rhiQvARcMvw4
++wiIAyadx9D11xaX/1p4H9lmuHsHdIej8+QL2TnHklMBu/mUwazMmAt+l6FDLxrR
+2KqS0IYf56sFTs9EDz7NKII5pIbRo4jXp1uENMmjAoGAF4hqx2Sv6KGlsxzTch4r
+v4l0z+zAayaS33dGljePgs3SRAVuRT5wNXT3JqftLFGspKWpHWyKvfa+I3IX+biA
+PZN33n+IRx0YkM/Go+i9+vgaDdLHYgOpuygGhI0xiV8AJUOHKdLdO3gzN869h8OC
+uXpeXsD/3g1tAknT411PZwkCgYEArgVfszw50t/uD/tXfO68yMRBHanj8ZPiX5ee
+oPhye8e7tSYmgMNwmpdRO5d0H7nLoWYy9xS8aGAhzLjhvyA+9nEHGnQXPBcnFw1t
+1xHtE/z06F5b6+D1972PsplEdsUgYgMI1BYNW/VDW55/jXdLnjDZFY1zaVKlcXJS
+pZu5njkCgYA2Y+CNqPgQtfpG5KzHRkz2TFsvIn9pNEUjd0GF7vLSIulUcVgqTWUs
+lzzvF5N3DNo+cOoWvl09Kj6e7vppO5y2Y663xp50/GTh8cKujLwdqjU60IZe5+Rt
+FYq18vJz7hLJy2N0rVJb0mki/sj32WgJlbswNuTxo+M7nt0apAOunQ==
+-----END RSA PRIVATE KEY-----
+private_key_type    rsa
+serial_number       79:bb:cd:9a:b1:1c:40:c3:ea:a6:06:61:8a:27:4d:e9:ec:ee:57:45
 ```
 
 5. Установите корневой сертификат созданного центра сертификации в доверенные в хостовой системе.
