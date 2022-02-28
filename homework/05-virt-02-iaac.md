@@ -28,8 +28,25 @@
 Установить на личный компьютер:
 
 - VirtualBox
+```bash
+root@debian:/home/alex# VBoxManage --version
+6.1.28r147628
+```
 - Vagrant
+```bash
+root@debian:/home/alex# vagrant --version
+Vagrant 2.2.19
+```
 - Ansible
+```bash
+root@debian:/home/alex# ansible --version
+ansible 2.10.8
+  config file = None
+  configured module search path = ['/root/.ansible/plugins/modules', '/usr/share/ansible/plugins/modules']
+  ansible python module location = /usr/lib/python3/dist-packages/ansible
+  executable location = /usr/bin/ansible
+  python version = 3.9.2 (default, Feb 28 2021, 17:03:44) [GCC 10.2.1 20210110]
+```
 
 *Приложить вывод команд установленных версий каждой из программ, оформленный в markdown.*
 
