@@ -33,6 +33,7 @@ Hey, Netology
 </html>
 ```
 Опубликуйте созданный форк в своем репозитории и предоставьте ответ в виде ссылки на https://hub.docker.com/username_repo.
+> https://hub.docker.com/repository/docker/tcibizov/nginx
 
 ## Задача 2
 
