@@ -70,19 +70,23 @@ Hey, Netology
 - Подключитесь к первому контейнеру с помощью ```docker exec``` и создайте текстовый файл любого содержания в ```/data```;
 - Добавьте еще один файл в папку ```/data``` на хостовой машине;
 - Подключитесь во второй контейнер и отобразите листинг и содержание файлов в ```/data``` контейнера.
-> root@debian:~$ mkdir data
-> root@debian:~$ docker run --rm --name centos -d -v /home/alex/data:/data centos:latest sleep infinity 67b99b1b14e34b09d523a5efed7885ca3731e27bba425437d91f2be81025f8d5
-> root@debian:~$ docker run --rm --name debian -d -v /home/alex/data:/data debian:latest sleep infinity
+```shell
+alex@debian:~$ mkdir data
+alex@debian:~$ docker run --rm --name centos -d -v /home/alex/data:/data centos:latest sleep infinity
+67b99b1b14e34b09d523a5efed7885ca3731e27bba425437d91f2be81025f8d5
+alex@debian:~$ docker run --rm --name debian -d -v /home/alex/data:/data debian:latest sleep infinity
 9528144ac4cfe9ab7a9f68b1dc8f942c56859eebb45c83719ee55b33290b5994
-> root@debian:~$ docker exec centos /bin/bash -c "echo test > /data/testfile1"
-> root@debian:~$ echo test > data/testfile2
-> root@debian:~$ docker exec debian /bin/bash -c "ls -l /data/"total 8
--rw-r--r-- 1 root root 5 Feb  2 16:30 testfile1
--rw-rw-r-- 1 1000 1000 5 Feb  2 16:31 testfile2
-> root@debian~$ docker exec debian /bin/bash -c "cat /data/testfile1"
+alex@debian:~$ docker exec centos /bin/bash -c "echo test > /data/testfile1"
+alex@debian:~$ echo test > data/testfile2
+alex@debian:~$ docker exec debian /bin/bash -c "ls -l /data/"
+total 8
+-rw-r--r-- 1 root root 16 Apr  2 20:10 testfile1
+-rw-rw-r-- 1 1000 1000 16 Apr  2 16:12 testfile2
+alex@debian:~$ docker exec debian /bin/bash -c "cat /data/testfile1"
 test
-> root@debian:~$ docker exec debian /bin/bash -c "cat /data/testfile2"
+alex@debian:~$ docker exec debian /bin/bash -c "cat /data/testfile2"
 test
+```
 
 ## Задача 4 (*)
 
