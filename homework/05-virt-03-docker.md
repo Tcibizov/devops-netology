@@ -80,7 +80,7 @@ alex@debian:~$ docker exec centos /bin/bash -c "echo test > /data/testfile1"
 alex@debian:~$ echo test > data/testfile2
 alex@debian:~$ docker exec debian /bin/bash -c "ls -l /data/"
 total 8
--rw-r--r-- 1 root root 16 Apr  2 20:10 testfile1
+-rw-r--r-- 1 root root 16 Apr  2 16:10 testfile1
 -rw-rw-r-- 1 1000 1000 16 Apr  2 16:12 testfile2
 alex@debian:~$ docker exec debian /bin/bash -c "cat /data/testfile1"
 test
