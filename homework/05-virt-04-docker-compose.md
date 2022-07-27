@@ -33,7 +33,7 @@ alex@alex-VirtualBox:~$ yc compute image list
 
 Создать вашу первую виртуальную машину в Яндекс.Облаке.
 
-> ![gcr-viewer](yc.png)
+> ![gcr-viewer](yc_vm.png)
 
 ## Задача 3
 
