@@ -38,7 +38,7 @@
 ```
 docker node ls
 ```
-> ![gcr-viewer](docker_node_ls.png)
+> ![gcr-viewer](img/docker_node_ls.png)
 
 ## Задача 3
 
@@ -48,7 +48,7 @@ docker node ls
 ```
 docker service ls
 ```
-> ![gcr-viewer](docker_service_ls.png)
+> ![gcr-viewer](img/docker_service_ls.png)
 
 ## Задача 4 (*)
 
