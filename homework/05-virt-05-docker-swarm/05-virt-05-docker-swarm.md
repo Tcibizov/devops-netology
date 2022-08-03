@@ -37,7 +37,6 @@
 Для получения зачета, вам необходимо предоставить скриншот из терминала (консоли), с выводом команды:
 ```
 docker node ls
-
 ```
 > ![gcr-viewer](docker_node_ls.png)
 
@@ -49,6 +48,7 @@ docker node ls
 ```
 docker service ls
 ```
+> ![gcr-viewer](docker_service_ls.png)
 
 ## Задача 4 (*)
 
