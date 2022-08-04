@@ -382,7 +382,7 @@ serial_number       79:bb:cd:9a:b1:1c:40:c3:ea:a6:06:61:8a:27:4d:e9:ec:ee:57:45
 
 5. Установите корневой сертификат созданного центра сертификации в доверенные в хостовой системе.
 > Ответ:
-> ![gcr-viewer](CA_crt.png)
+> ![gcr-viewer](img/ca_crt.png)
 ```bash
 root@debian:/home/alex# cp ./CA_cert.crt /usr/local/share/ca-certificates/
 root@debian:/home/alex# sudo update-ca-certificates
@@ -650,8 +650,8 @@ nginx: configuration file /etc/nginx/nginx.conf test is successful
 
 8. Откройте в браузере на хосте https адрес страницы, которую обслуживает сервер nginx.
 > Ответ:
->![nginx](nginx.png)
->![nginx](mozilla.png)
+>![nginx](img/nginx.png)
+>![nginx](img/mozilla.png)
 9. Создайте скрипт, который будет генерировать новый сертификат в vault:
   - генерируем новый сертификат так, чтобы не переписывать конфиг nginx;
   - перезапускаем nginx для применения нового сертификата.
