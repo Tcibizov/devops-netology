@@ -23,6 +23,8 @@ postgres=# \l
            |          |          |             |             | postgres=CTc/postgres
 (3 rows)
 
+test_db=# 
+
 ```
 
 ## Задача 2
@@ -92,6 +94,8 @@ test_db=# select * from information_schema.table_privileges where grantee in ('t
  postgres | test-simple-user | test_db       | public       | orders     | DELETE         | NO           | NO
 (8 rows)
 
+test_db=# 
+
 ```
 ## Задача 3
 
@@ -145,6 +149,8 @@ test_db=# select count (*) from orders;
      5
 (1 row)
 
+test_db=# 
+
 ```
 
 ## Задача 4
@@ -178,6 +184,8 @@ test_db=# select * from clients as c where  exists (select id from orders as o w
   2 | Петров Петр Петрович | Canada  |       4
   3 | Иоганн Себастьян Бах | Japan   |       5
 (3 rows)
+
+test_db=# 
 ```
 
 ## Задача 5
@@ -186,6 +194,19 @@ test_db=# select * from clients as c where  exists (select id from orders as o w
 (используя директиву EXPLAIN).
 
 Приведите получившийся результат и объясните что значат полученные значения.
+```
+test_db=# explain select * from clients as c where  exists (select id from orders as o where c.booking = o.id);
+                               QUERY PLAN                               
+------------------------------------------------------------------------
+ Hash Join  (cost=37.00..57.24 rows=810 width=72)
+   Hash Cond: (c.booking = o.id)
+   ->  Seq Scan on clients c  (cost=0.00..18.10 rows=810 width=72)
+   ->  Hash  (cost=22.00..22.00 rows=1200 width=4)
+         ->  Seq Scan on orders o  (cost=0.00..22.00 rows=1200 width=4)
+(5 rows)
+
+test_db=# 
+```
 
 ## Задача 6
 
