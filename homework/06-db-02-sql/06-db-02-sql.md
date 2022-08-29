@@ -221,7 +221,7 @@ test_db=#
 Приведите список операций, который вы применяли для бэкапа данных и восстановления.
 ```
 root@alex:/# docker exec -t pg-docker pg_dump -U postgres test_db -f /var/lib/postgresql/data/dump_test.sql
-root@alex:/# docker exec -i pg-docker psql -U postgres -d test_db -f /var/lib/postgresql/data/dump_test.sql
+root@alex:/# docker exec -i pg-docker2 psql -U postgres -d test_db -f /var/lib/postgresql/data/dump_test.sql
 SET
 SET
 SET
