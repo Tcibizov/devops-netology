@@ -218,7 +218,26 @@ test_db=#
 
 Восстановите БД test_db в новом контейнере.
 
-Приведите список операций, который вы применяли для бэкапа данных и восстановления. 
+Приведите список операций, который вы применяли для бэкапа данных и восстановления.
+```
+root@alex:/# docker exec -t pg-docker pg_dump -U postgres test_db -f /var/lib/postgresql/data/dump_test.sql
+root@alex:/# docker exec -i pg-docker psql -U postgres -d test_db -f /var/lib/postgresql/data/dump_test.sql
+SET
+SET
+SET
+SET
+SET
+ set_config 
+------------
+ 
+(1 row)
+
+SET
+SET
+SET
+SET
+root@alex:/# 
+```
 
 ---
 
