@@ -22,6 +22,7 @@ postgres=# \l
  template1 | postgres | UTF8     | ru_RU.UTF-8 | ru_RU.UTF-8 | =c/postgres          +
            |          |          |             |             | postgres=CTc/postgres
 (3 rows)
+
 ```
 
 ## Задача 2
@@ -77,6 +78,20 @@ test_db-# \dt
  public | clients | table | postgres
  public | orders  | table | postgres
 (2 rows)
+
+test_db=# select * from information_schema.table_privileges where grantee in ('test-admin-user', 'test-simple-user');
+ grantor  |     grantee      | table_catalog | table_schema | table_name | privilege_type | is_grantable | with_hierarchy 
+----------+------------------+---------------+--------------+------------+----------------+--------------+----------------
+ postgres | test-simple-user | test_db       | public       | clients    | INSERT         | NO           | NO
+ postgres | test-simple-user | test_db       | public       | clients    | SELECT         | NO           | YES
+ postgres | test-simple-user | test_db       | public       | clients    | UPDATE         | NO           | NO
+ postgres | test-simple-user | test_db       | public       | clients    | DELETE         | NO           | NO
+ postgres | test-simple-user | test_db       | public       | orders     | INSERT         | NO           | NO
+ postgres | test-simple-user | test_db       | public       | orders     | SELECT         | NO           | YES
+ postgres | test-simple-user | test_db       | public       | orders     | UPDATE         | NO           | NO
+ postgres | test-simple-user | test_db       | public       | orders     | DELETE         | NO           | NO
+(8 rows)
+
 ```
 ## Задача 3
 
