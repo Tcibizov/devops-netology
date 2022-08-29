@@ -49,7 +49,57 @@ postgres=# \l
 - описание таблиц (describe)
 - SQL-запрос для выдачи списка пользователей с правами над таблицами test_db
 - список пользователей с правами над таблицами test_db
+```
+test_db=# \l
+                                  List of databases
+   Name    |  Owner   | Encoding |   Collate   |    Ctype    |   Access privileges   
+-----------+----------+----------+-------------+-------------+-----------------------
+ postgres  | postgres | UTF8     | ru_RU.UTF-8 | ru_RU.UTF-8 | 
+ template0 | postgres | UTF8     | ru_RU.UTF-8 | ru_RU.UTF-8 | =c/postgres          +
+           |          |          |             |             | postgres=CTc/postgres
+ template1 | postgres | UTF8     | ru_RU.UTF-8 | ru_RU.UTF-8 | =c/postgres          +
+           |          |          |             |             | postgres=CTc/postgres
+ test_db   | postgres | UTF8     | ru_RU.UTF-8 | ru_RU.UTF-8 | 
+(4 rows)
 
+test_db=# \du
+                                       List of roles
+    Role name     |                         Attributes                         | Member of 
+------------------+------------------------------------------------------------+-----------
+ postgres         | Superuser, Create role, Create DB, Replication, Bypass RLS | {}
+ test-admin-user  | Superuser, No inheritance                                  | {}
+ test-simple-user | No inheritance                                             | {}
+
+test_db=# cleR
+test_db-# clear
+test_db-# \l
+                                  List of databases
+   Name    |  Owner   | Encoding |   Collate   |    Ctype    |   Access privileges   
+-----------+----------+----------+-------------+-------------+-----------------------
+ postgres  | postgres | UTF8     | ru_RU.UTF-8 | ru_RU.UTF-8 | 
+ template0 | postgres | UTF8     | ru_RU.UTF-8 | ru_RU.UTF-8 | =c/postgres          +
+           |          |          |             |             | postgres=CTc/postgres
+ template1 | postgres | UTF8     | ru_RU.UTF-8 | ru_RU.UTF-8 | =c/postgres          +
+           |          |          |             |             | postgres=CTc/postgres
+ test_db   | postgres | UTF8     | ru_RU.UTF-8 | ru_RU.UTF-8 | 
+(4 rows)
+
+test_db-# \du
+                                       List of roles
+    Role name     |                         Attributes                         | Member of 
+------------------+------------------------------------------------------------+-----------
+ postgres         | Superuser, Create role, Create DB, Replication, Bypass RLS | {}
+ test-admin-user  | Superuser, No inheritance                                  | {}
+ test-simple-user | No inheritance                                             | {}
+
+test_db-# \dt
+          List of relations
+ Schema |  Name   | Type  |  Owner   
+--------+---------+-------+----------
+ public | clients | table | postgres
+ public | orders  | table | postgres
+(2 rows)
+```
 ## Задача 3
 
 Используя SQL синтаксис - наполните таблицы следующими тестовыми данными:
