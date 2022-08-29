@@ -164,6 +164,21 @@ test_db=# select count (*) from orders;
 Приведите SQL-запрос для выдачи всех пользователей, которые совершили заказ, а также вывод данного запроса.
  
 Подсказк - используйте директиву `UPDATE`.
+```
+test_db=# update  clients set booking = 3 where id = 1;
+UPDATE 1
+test_db=# update  clients set booking = 4 where id = 2;
+UPDATE 1
+test_db=# update  clients set booking = 5 where id = 3;
+UPDATE 1
+test_db=# select * from clients as c where  exists (select id from orders as o where c.booking = o.id) ;
+ id |       lastname       | country | booking 
+----+----------------------+---------+---------
+  1 | Иванов Иван Иванович | USA     |       3
+  2 | Петров Петр Петрович | Canada  |       4
+  3 | Иоганн Себастьян Бах | Japan   |       5
+(3 rows)
+```
 
 ## Задача 5
 
