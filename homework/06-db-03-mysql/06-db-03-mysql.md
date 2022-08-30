@@ -23,6 +23,34 @@
 **Приведите в ответе** количество записей с `price` > 300.
 
 В следующих заданиях мы будем продолжать работу с данным контейнером.
+```
+mysql> \s
+--------------
+mysql  Ver 8.0.30 for Linux on x86_64 (MySQL Community Server - GPL)
+
+Connection id:		14
+Current database:	test_db
+Current user:		root@localhost
+SSL:			Not in use
+Current pager:		stdout
+Using outfile:		''
+Using delimiter:	;
+Server version:		8.0.30 MySQL Community Server - GPL
+Protocol version:	10
+Connection:		Localhost via UNIX socket
+Server characterset:	utf8mb4
+Db     characterset:	utf8mb4
+Client characterset:	latin1
+Conn.  characterset:	latin1
+UNIX socket:		/var/run/mysqld/mysqld.sock
+Binary data as:		Hexadecimal
+Uptime:			17 min 31 sec
+
+Threads: 2  Questions: 18  Slow queries: 0  Opens: 139  Flush tables: 3  Open tables: 58  Queries per second avg: 0.017
+--------------
+
+mysql> 
+```
 
 ## Задача 2
 
