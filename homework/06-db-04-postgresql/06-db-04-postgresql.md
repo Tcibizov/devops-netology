@@ -113,7 +113,26 @@ postgres-# \q
 
 **Приведите в ответе** команду, которую вы использовали для вычисления и полученный результат.
 ```
+test_database=# \dt
+         List of relations
+ Schema |  Name  | Type  |  Owner   
+--------+--------+-------+----------
+ public | orders | table | postgres
+(1 row)
 
+test_database=# ANALYZE VERBOSE public.orders;
+INFO:  analyzing "public.orders"
+INFO:  "orders": scanned 1 of 1 pages, containing 8 live rows and 0 dead rows; 8 rows in sample, 8 estimated total rows
+ANALYZE
+test_database=# select avg_width from pg_stats where tablename='orders';
+ avg_width 
+-----------
+         4
+        16
+         4
+(3 rows)
+
+test_database=# 
 ```
 
 ## Задача 3
