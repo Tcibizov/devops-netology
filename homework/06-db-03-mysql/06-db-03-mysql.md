@@ -28,7 +28,7 @@ mysql> \s
 --------------
 mysql  Ver 8.0.30 for Linux on x86_64 (MySQL Community Server - GPL)
 
-Connection id:		14
+Connection id:		26
 Current database:	test_db
 Current user:		root@localhost
 SSL:			Not in use
@@ -44,12 +44,28 @@ Client characterset:	latin1
 Conn.  characterset:	latin1
 UNIX socket:		/var/run/mysqld/mysqld.sock
 Binary data as:		Hexadecimal
-Uptime:			17 min 31 sec
+Uptime:			12 hours 25 min 47 sec
 
-Threads: 2  Questions: 18  Slow queries: 0  Opens: 139  Flush tables: 3  Open tables: 58  Queries per second avg: 0.017
+Threads: 2  Questions: 135  Slow queries: 0  Opens: 194  Flush tables: 3  Open tables: 110  Queries per second avg: 0.003
 --------------
 
-mysql> 
+mysql> show tables;
++-------------------+
+| Tables_in_test_db |
++-------------------+
+| orders            |
++-------------------+
+1 row in set (0.01 sec)
+
+mysql> select count(*) from orders where price >300;
++----------+
+| count(*) |
++----------+
+|        1 |
++----------+
+1 row in set (0.05 sec)
+
+mysql>
 ```
 
 ## Задача 2
