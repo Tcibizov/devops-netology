@@ -106,7 +106,34 @@ mysql>
 - на `MyISAM`
 - на `InnoDB`
 ```
+mysql> SELECT TABLE_NAME,ENGINE,ROW_FORMAT,TABLE_ROWS,DATA_LENGTH,INDEX_LENGTH FROM information_schema.TABLES WHERE table_name = 'orders' and  TABLE_SCHEMA = 'test_db' ORDER BY ENGINE asc;
++------------+--------+------------+------------+-------------+--------------+
+| TABLE_NAME | ENGINE | ROW_FORMAT | TABLE_ROWS | DATA_LENGTH | INDEX_LENGTH |
++------------+--------+------------+------------+-------------+--------------+
+| orders     | InnoDB | Dynamic    |          5 |       16384 |            0 |
++------------+--------+------------+------------+-------------+--------------+
+1 row in set (0.06 sec)
 
+mysql> ALTER TABLE orders ENGINE = MyISAM;
+Query OK, 5 rows affected (1.22 sec)
+Records: 5  Duplicates: 0  Warnings: 0
+
+mysql> ALTER TABLE orders ENGINE = InnoDB;
+Query OK, 5 rows affected (1.30 sec)
+Records: 5  Duplicates: 0  Warnings: 0
+
+mysql> show profiles;
++----------+------------+------------------------------------+
+| Query_ID | Duration   | Query                              |
++----------+------------+------------------------------------+
+|        1 | 0.00013225 | show prifiles                      |
+|        2 | 1.22495100 | ALTER TABLE orders ENGINE = MyISAM |
+|        3 | 1.30170325 | ALTER TABLE orders ENGINE = InnoDB |
++----------+------------+------------------------------------+
+3 rows in set, 1 warning (0.00 sec)
+
+Продолжительность переключения на MyISAM: 1,22
+Продолжительность переключения на InnoDB: 1,30
 ```
 
 ## Задача 4 
