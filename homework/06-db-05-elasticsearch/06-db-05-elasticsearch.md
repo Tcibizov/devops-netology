@@ -20,6 +20,34 @@
 
 В ответе приведите:
 - текст Dockerfile манифеста
+```
+root@alex:/home/alex/11# cat Dockerfile
+FROM    centos:7
+
+ENV     DIR=/opt/elasticsearch/
+ENV     USER=elastic
+
+RUN     useradd -d $DIR -m -s /bin/bash $USER && \
+        mkdir /var/lib/data && \
+        chown $USER. /var/lib/data && \
+        yum -y install wget && \
+        cd $DIR && \
+        wget https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-8.0.1-linux-x86_64.tar.gz && \
+        tar -zxvf elasticsearch-8.0.1-linux-x86_64.tar.gz && \
+        echo "node.name: netology_test" >> elasticsearch-8.0.1/config/elasticsearch.yml && \
+        echo "path.data: /var/lib/data" >> elasticsearch-8.0.1/config/elasticsearch.yml && \
+        chown -R $USER. $DIR/elasticsearch-8.0.1 && \
+        rm -f elasticsearch-8.0.1-linux-x86_64.tar.gz
+
+WORKDIR $DIR/elasticsearch-8.0.1
+
+USER    elastic
+
+EXPOSE 9200/tcp
+EXPOSE 9300/tcp
+
+ENTRYPOINT ["./bin/elasticsearch"]
+```
 - ссылку на образ в репозитории dockerhub
 - ответ `elasticsearch` на запрос пути `/` в json виде
 
