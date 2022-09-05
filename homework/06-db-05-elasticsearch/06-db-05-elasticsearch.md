@@ -49,6 +49,7 @@ EXPOSE 9300/tcp
 ENTRYPOINT ["./bin/elasticsearch"]
 ```
 - ссылку на образ в репозитории dockerhub
+> https://hub.docker.com/repository/docker/tcibizov/elasticsearch-netology/general
 - ответ `elasticsearch` на запрос пути `/` в json виде
 
 Подсказки:
