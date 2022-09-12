@@ -63,7 +63,14 @@ root@alex:/home/alex#
 
 В виде результата этой задачи приложите вывод `--version` двух версий терраформа доступных на вашем компьютере 
 или виртуальной машине.
+```
 
+```
+root@alex:/home/alex# terraform_0.13 --version
+
+Your version of Terraform is out of date! The latest version
+is 1.2.9. You can update by downloading from https://www.terraform.io/downloads.html
+Terraform v0.13.0
 ---
 
 ### Как cдавать задание
