@@ -90,7 +90,7 @@ root@alex:/home/alex#
 1. Ответ на вопрос: при помощи какого инструмента (из разобранных на прошлом занятии) можно создать свой образ ami?
 > C помощью Packer.
 2. Ссылку на репозиторий с исходной конфигурацией терраформа.
-> 
+> https://github.com/Tcibizov/devops-netology/blob/8688fb01bbf5a577c0e546dffa11aeb6554a5c2a/homework/07-terraform-02-syntax/yc.tf
  
 ---
 
