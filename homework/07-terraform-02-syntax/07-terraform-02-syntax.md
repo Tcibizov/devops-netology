@@ -48,6 +48,14 @@ root@alex:/home/alex# yc vpc network list
 | enpc56id6gcuomuvetk0 | default |
 +----------------------+---------+
 
+root@alex:/home/alex# yc compute image list
++----------------------+---------------+--------+----------------------+--------+
+|          ID          |     NAME      | FAMILY |     PRODUCT IDS      | STATUS |
++----------------------+---------------+--------+----------------------+--------+
+| fd85e63v406oaqdjnc4b | centos-7-base | centos | f2e99agij1uhrk2ioilk | READY  |
++----------------------+---------------+--------+----------------------+--------+
+
+root@alex:/home/alex# 
 ```
 
 ## Задача 2. Создание aws ec2 или yandex_compute_instance через терраформ. 
