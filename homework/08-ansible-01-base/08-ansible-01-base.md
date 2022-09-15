@@ -2,6 +2,15 @@
 
 ## Подготовка к выполнению
 1. Установите ansible версии 2.10 или выше.
+```
+ansible 2.10.8
+  config file = None
+  configured module search path = ['/root/.ansible/plugins/modules', '/usr/share/ansible/plugins/modules']
+  ansible python module location = /usr/lib/python3/dist-packages/ansible
+  executable location = /usr/bin/ansible
+  python version = 3.10.4 (main, Jun 29 2022, 12:14:53) [GCC 11.2.0]
+root@alex:/home/alex/Goland# 
+```
 2. Создайте свой собственный публичный репозиторий на github с произвольным именем.
 3. Скачайте [playbook](./playbook/) из репозитория с домашним заданием и перенесите его в свой репозиторий.
 
