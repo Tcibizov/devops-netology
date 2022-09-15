@@ -46,7 +46,7 @@ root@alex:/home/alex/Goland#
     ```
     x := []int{48,96,86,68,57,82,63,70,37,34,83,27,19,97,9,17,}
     ```
->
+> https://github.com/Tcibizov/devops-netology/blob/9067c89376994b537cdb618b3b91f5336e653c92/homework/07-terraform-05-golang/src/minListValue.go
 ```
 root@alex:/home/alex/Goland# go run minListValue.go
 9
