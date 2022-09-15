@@ -34,6 +34,12 @@
         fmt.Println(output)    
     }
     ```
+```
+root@alex:/home/alex/Goland# go run footToMeter.go
+Enter a number: 3000
+914.4000000000001
+root@alex:/home/alex/Goland#
+```
  
 1. Напишите программу, которая найдет наименьший элемент в любом заданном списке, например:
     ```
