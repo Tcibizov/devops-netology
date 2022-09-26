@@ -4,6 +4,8 @@
 
 1. Создаём домен `tcibizov.ru` на (https://www.reg.ru/). Прописываем DNS-серверы: (`ns1.yandexcloud.net`, `ns2.yandexcloud.net`).
 
+![reg.ru domain](img/reg-ru.png)
+
 2. Создадим новый workspace `devops-diplom-yandexcloud` в Terraform Cloud.
 
 ![Terraform workspace](img/terraform-workspace.png)
