@@ -1,17 +1,17 @@
 terraform {
   cloud {
-    organization = "maliushkin"
+    organization = "tcibizov"
 
     workspaces {
-      name = "devops-diplom-yandexcloud"
+      name = "dvpspdc"
     }
   }
 }
 
 resource "yandex_compute_instance" "nat_instance" {
   name     = "nat"
-  hostname = "nat.maliushkin.ru"
-  zone     = "ru-central1-a"
+  hostname = "nat.tcibizov.ru"
+  zone     = "ru-central1-b"
 
   resources {
     cores  = 2
@@ -37,7 +37,7 @@ resource "yandex_compute_instance" "nat_instance" {
 
 resource "yandex_compute_instance" "entrance_instance" {
   name = "main"
-  zone = "ru-central1-a"
+  zone = "ru-central1-b"
 
   resources {
     cores  = 2
