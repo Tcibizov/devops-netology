@@ -11,7 +11,7 @@ terraform {
 resource "yandex_compute_instance" "nat_instance" {
   name     = "nat"
   hostname = "nat.tcibizov.ru"
-  zone     = "ru-central1-b"
+  zone     = "ru-central1-a"
 
   resources {
     cores  = 2
@@ -20,7 +20,7 @@ resource "yandex_compute_instance" "nat_instance" {
 
   boot_disk {
     initialize_params {
-      image_id = "fd84mnpg35f7s7b0f5lg"
+      image_id = "fd85e63v406oaqdjnc4b"
     }
   }
 
@@ -37,7 +37,7 @@ resource "yandex_compute_instance" "nat_instance" {
 
 resource "yandex_compute_instance" "entrance_instance" {
   name = "main"
-  zone = "ru-central1-b"
+  zone = "ru-central1-a"
 
   resources {
     cores  = 2
@@ -46,7 +46,7 @@ resource "yandex_compute_instance" "entrance_instance" {
 
   boot_disk {
     initialize_params {
-      image_id = "fd81d2d9ifd50gmvc03g"
+      image_id = "fd85e63v406oaqdjnc4b"
       size     = 10
     }
   }
@@ -72,7 +72,7 @@ resource "yandex_compute_instance" "db01_instance" {
 
   boot_disk {
     initialize_params {
-      image_id = "fd81d2d9ifd50gmvc03g"
+      image_id = "fd85e63v406oaqdjnc4b"
       size     = 10
     }
   }
@@ -97,7 +97,7 @@ resource "yandex_compute_instance" "db02_instance" {
 
   boot_disk {
     initialize_params {
-      image_id = "fd81d2d9ifd50gmvc03g"
+      image_id = "fd85e63v406oaqdjnc4b"
       size     = 10
     }
   }
@@ -122,7 +122,7 @@ resource "yandex_compute_instance" "app_instance" {
 
   boot_disk {
     initialize_params {
-      image_id = "fd81d2d9ifd50gmvc03g"
+      image_id = "fd85e63v406oaqdjnc4b"
       size     = 10
     }
   }
@@ -147,7 +147,7 @@ resource "yandex_compute_instance" "monitoring_instance" {
 
   boot_disk {
     initialize_params {
-      image_id = "fd81d2d9ifd50gmvc03g"
+      image_id = "fd85e63v406oaqdjnc4b"
       size     = 10
     }
   }
@@ -172,7 +172,7 @@ resource "yandex_compute_instance" "gitlab_instance" {
 
   boot_disk {
     initialize_params {
-      image_id = "fd81d2d9ifd50gmvc03g"
+      image_id = "fd85e63v406oaqdjnc4b"
       size     = 30
     }
   }
@@ -197,7 +197,7 @@ resource "yandex_compute_instance" "runner_instance" {
 
   boot_disk {
     initialize_params {
-      image_id = "fd81d2d9ifd50gmvc03g"
+      image_id = "fd85e63v406oaqdjnc4b"
       size     = 30
     }
   }
