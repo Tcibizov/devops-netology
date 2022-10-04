@@ -39,7 +39,40 @@ provider "yandex" {
 
 ### Запуск Terraform
 
-1. Выполним `terraform init`:
+1. Выполним `terraform login`:
+```
+Retrieved token for user tcibizov
+
+
+---------------------------------------------------------------------------------
+
+                                          -                                
+                                          -----                           -
+                                          ---------                      --
+                                          ---------  -                -----
+                                           ---------  ------        -------
+                                             -------  ---------  ----------
+                                                ----  ---------- ----------
+                                                  --  ---------- ----------
+   Welcome to Terraform Cloud!                     -  ---------- -------
+                                                      ---  ----- ---
+   Documentation: terraform.io/docs/cloud             --------   -
+                                                      ----------
+                                                      ----------
+                                                       ---------
+                                                           -----
+                                                               -
+
+
+   New to TFC? Follow these steps to instantly apply an example configuration:
+
+   $ git clone https://github.com/hashicorp/tfc-getting-started.git
+   $ cd tfc-getting-started
+   $ scripts/setup.sh
+
+```
+
+2. Выполним `terraform init`:
 ```
 Initializing Terraform Cloud...
 
