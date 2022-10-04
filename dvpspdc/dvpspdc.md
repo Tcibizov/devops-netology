@@ -88,4 +88,24 @@ see any changes that are required for your infrastructure.
 If you ever set or change modules or Terraform Settings, run "terraform init"
 again to reinitialize your working directory.
 ```
+3. Выполним 'terraform validate':
+```
+Initializing Terraform Cloud...
+
+Initializing provider plugins...
+- Reusing previous version of yandex-cloud/yandex from the dependency lock file
+- Using previously-installed yandex-cloud/yandex v0.80.0
+
+Terraform Cloud has been successfully initialized!
+
+You may now begin working with Terraform Cloud. Try running "terraform plan" to
+see any changes that are required for your infrastructure.
+
+If you ever set or change modules or Terraform Settings, run "terraform init"
+again to reinitialize your working directory.
+root@alex:/home/alex/dvpspdc# terraform validate
+Success! The configuration is valid.
+```
+4. Выполним 'terraform plan':
+
 
