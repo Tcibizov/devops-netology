@@ -1741,3 +1741,18 @@ Apply complete! Resources: 18 added, 0 changed, 0 destroyed.
 
 root@alex:/home/alex/dvpspdc# 
 ```
+После создания инфраструктуры проверим Terraform Cloud:
+
+![Terraform workspace applied](img/terraform-network.png)
+
+Так же проверим UI Yandex Cloud:
+
+* **Виртуальные машины**
+
+![Yadnex Cloud VMs](img/yc-vms.png)
+
+* **Зона DNS**
+
+![Yadnex Cloud DNS](img/yc-dns.png)
+
+Инфраструктура **успешно** развёрнута.
