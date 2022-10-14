@@ -308,5 +308,678 @@ root@alex:/home/alex/dvpspdc# terraform validate
 Success! The configuration is valid.
 ```
 4. Выполним `terraform plan`:
+``
+root@alex:/home/alex/dvpspdc# terraform plan
+Running plan in Terraform Cloud. Output will stream here. Pressing Ctrl-C
+will stop streaming the logs, but will not stop the plan running remotely.
+
+Preparing the remote plan...
+
+To view this run in a browser, visit:
+https://app.terraform.io/app/tcibizov/dvpspdc/runs/run-SQy2iFkA5BjGQTFm
+
+Waiting for the plan to start...
+
+Terraform v1.3.0
+on linux_amd64
+Initializing plugins and modules...
+
+Terraform used the selected providers to generate the following execution
+plan. Resource actions are indicated with the following symbols:
+  + create
+
+Terraform will perform the following actions:
+
+  # yandex_compute_instance.app_instance will be created
+  + resource "yandex_compute_instance" "app_instance" {
+      + created_at                = (known after apply)
+      + folder_id                 = (known after apply)
+      + fqdn                      = (known after apply)
+      + hostname                  = (known after apply)
+      + id                        = (known after apply)
+      + metadata                  = {
+          + "ssh-keys" = <<-EOT
+                centos:ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDAMn6UfaB8p5V2OyPL2nJapIeRar3OGHGwejsAnscFytLX+cT/deFQ8Sg59Wm6wFc3gwPa4LzDgj5nTQgHKdcc2tuW33xF2w2oZfOuI7x3rgDTO+0nIyr7ydNhpsoSx0VsZ2PTtrn5lhB/J0qBcoX4GghMxJuE0DiglSzTC3i6QpqMT+wkdOqrMk0bVmNyQrLBrSFdQfSxNa28fTyk1TQ+m1nD3iGFDpH74kzYG8bcxFfjIVojz1OQJaQov4Jc68i5m9Kvw1OE0lb0JnmS8KTHHBhOCh8sztansh0QUcD3bidI+oAABpc+rgIhioNnYyL8GsW8zrofb0rKb+pIY+ax alex@alex
+            EOT
+        }
+      + name                      = "wordpress"
+      + network_acceleration_type = "standard"
+      + platform_id               = "standard-v1"
+      + service_account_id        = (known after apply)
+      + status                    = (known after apply)
+      + zone                      = "ru-central1-a"
+
+      + boot_disk {
+          + auto_delete = true
+          + device_name = (known after apply)
+          + disk_id     = (known after apply)
+          + mode        = (known after apply)
+
+          + initialize_params {
+              + block_size  = (known after apply)
+              + description = (known after apply)
+              + image_id    = "fd85e63v406oaqdjnc4b"
+              + name        = (known after apply)
+              + size        = 10
+              + snapshot_id = (known after apply)
+              + type        = "network-hdd"
+            }
+        }
+
+      + network_interface {
+          + index              = (known after apply)
+          + ip_address         = (known after apply)
+          + ipv4               = true
+          + ipv6               = (known after apply)
+          + ipv6_address       = (known after apply)
+          + mac_address        = (known after apply)
+          + nat                = (known after apply)
+          + nat_ip_address     = (known after apply)
+          + nat_ip_version     = (known after apply)
+          + security_group_ids = (known after apply)
+          + subnet_id          = "e9b7ltjppp3nrkuemo66"
+        }
+
+      + placement_policy {
+          + host_affinity_rules = (known after apply)
+          + placement_group_id  = (known after apply)
+        }
+
+      + resources {
+          + core_fraction = 100
+          + cores         = 4
+          + memory        = 4
+        }
+
+      + scheduling_policy {
+          + preemptible = (known after apply)
+        }
+    }
+
+  # yandex_compute_instance.db01_instance will be created
+  + resource "yandex_compute_instance" "db01_instance" {
+      + created_at                = (known after apply)
+      + folder_id                 = (known after apply)
+      + fqdn                      = (known after apply)
+      + hostname                  = (known after apply)
+      + id                        = (known after apply)
+      + metadata                  = {
+          + "ssh-keys" = <<-EOT
+                centos:ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDAMn6UfaB8p5V2OyPL2nJapIeRar3OGHGwejsAnscFytLX+cT/deFQ8Sg59Wm6wFc3gwPa4LzDgj5nTQgHKdcc2tuW33xF2w2oZfOuI7x3rgDTO+0nIyr7ydNhpsoSx0VsZ2PTtrn5lhB/J0qBcoX4GghMxJuE0DiglSzTC3i6QpqMT+wkdOqrMk0bVmNyQrLBrSFdQfSxNa28fTyk1TQ+m1nD3iGFDpH74kzYG8bcxFfjIVojz1OQJaQov4Jc68i5m9Kvw1OE0lb0JnmS8KTHHBhOCh8sztansh0QUcD3bidI+oAABpc+rgIhioNnYyL8GsW8zrofb0rKb+pIY+ax alex@alex
+            EOT
+        }
+      + name                      = "mysql-master"
+      + network_acceleration_type = "standard"
+      + platform_id               = "standard-v1"
+      + service_account_id        = (known after apply)
+      + status                    = (known after apply)
+      + zone                      = "ru-central1-a"
+
+      + boot_disk {
+          + auto_delete = true
+          + device_name = (known after apply)
+          + disk_id     = (known after apply)
+          + mode        = (known after apply)
+
+          + initialize_params {
+              + block_size  = (known after apply)
+              + description = (known after apply)
+              + image_id    = "fd85e63v406oaqdjnc4b"
+              + name        = (known after apply)
+              + size        = 10
+              + snapshot_id = (known after apply)
+              + type        = "network-hdd"
+            }
+        }
+
+      + network_interface {
+          + index              = (known after apply)
+          + ip_address         = (known after apply)
+          + ipv4               = true
+          + ipv6               = (known after apply)
+          + ipv6_address       = (known after apply)
+          + mac_address        = (known after apply)
+          + nat                = (known after apply)
+          + nat_ip_address     = (known after apply)
+          + nat_ip_version     = (known after apply)
+          + security_group_ids = (known after apply)
+          + subnet_id          = "e9b7ltjppp3nrkuemo66"
+        }
+
+      + placement_policy {
+          + host_affinity_rules = (known after apply)
+          + placement_group_id  = (known after apply)
+        }
+
+      + resources {
+          + core_fraction = 100
+          + cores         = 4
+          + memory        = 4
+        }
+
+      + scheduling_policy {
+          + preemptible = (known after apply)
+        }
+    }
+
+  # yandex_compute_instance.db02_instance will be created
+  + resource "yandex_compute_instance" "db02_instance" {
+      + created_at                = (known after apply)
+      + folder_id                 = (known after apply)
+      + fqdn                      = (known after apply)
+      + hostname                  = (known after apply)
+      + id                        = (known after apply)
+      + metadata                  = {
+          + "ssh-keys" = <<-EOT
+                centos:ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDAMn6UfaB8p5V2OyPL2nJapIeRar3OGHGwejsAnscFytLX+cT/deFQ8Sg59Wm6wFc3gwPa4LzDgj5nTQgHKdcc2tuW33xF2w2oZfOuI7x3rgDTO+0nIyr7ydNhpsoSx0VsZ2PTtrn5lhB/J0qBcoX4GghMxJuE0DiglSzTC3i6QpqMT+wkdOqrMk0bVmNyQrLBrSFdQfSxNa28fTyk1TQ+m1nD3iGFDpH74kzYG8bcxFfjIVojz1OQJaQov4Jc68i5m9Kvw1OE0lb0JnmS8KTHHBhOCh8sztansh0QUcD3bidI+oAABpc+rgIhioNnYyL8GsW8zrofb0rKb+pIY+ax alex@alex
+            EOT
+        }
+      + name                      = "mysql-slave"
+      + network_acceleration_type = "standard"
+      + platform_id               = "standard-v1"
+      + service_account_id        = (known after apply)
+      + status                    = (known after apply)
+      + zone                      = "ru-central1-a"
+
+      + boot_disk {
+          + auto_delete = true
+          + device_name = (known after apply)
+          + disk_id     = (known after apply)
+          + mode        = (known after apply)
+
+          + initialize_params {
+              + block_size  = (known after apply)
+              + description = (known after apply)
+              + image_id    = "fd85e63v406oaqdjnc4b"
+              + name        = (known after apply)
+              + size        = 10
+              + snapshot_id = (known after apply)
+              + type        = "network-hdd"
+            }
+        }
+
+      + network_interface {
+          + index              = (known after apply)
+          + ip_address         = (known after apply)
+          + ipv4               = true
+          + ipv6               = (known after apply)
+          + ipv6_address       = (known after apply)
+          + mac_address        = (known after apply)
+          + nat                = (known after apply)
+          + nat_ip_address     = (known after apply)
+          + nat_ip_version     = (known after apply)
+          + security_group_ids = (known after apply)
+          + subnet_id          = "e9b7ltjppp3nrkuemo66"
+        }
+
+      + placement_policy {
+          + host_affinity_rules = (known after apply)
+          + placement_group_id  = (known after apply)
+        }
+
+      + resources {
+          + core_fraction = 100
+          + cores         = 4
+          + memory        = 4
+        }
+
+      + scheduling_policy {
+          + preemptible = (known after apply)
+        }
+    }
+
+  # yandex_compute_instance.entrance_instance will be created
+  + resource "yandex_compute_instance" "entrance_instance" {
+      + created_at                = (known after apply)
+      + folder_id                 = (known after apply)
+      + fqdn                      = (known after apply)
+      + hostname                  = (known after apply)
+      + id                        = (known after apply)
+      + metadata                  = {
+          + "ssh-keys" = <<-EOT
+                centos:ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDAMn6UfaB8p5V2OyPL2nJapIeRar3OGHGwejsAnscFytLX+cT/deFQ8Sg59Wm6wFc3gwPa4LzDgj5nTQgHKdcc2tuW33xF2w2oZfOuI7x3rgDTO+0nIyr7ydNhpsoSx0VsZ2PTtrn5lhB/J0qBcoX4GghMxJuE0DiglSzTC3i6QpqMT+wkdOqrMk0bVmNyQrLBrSFdQfSxNa28fTyk1TQ+m1nD3iGFDpH74kzYG8bcxFfjIVojz1OQJaQov4Jc68i5m9Kvw1OE0lb0JnmS8KTHHBhOCh8sztansh0QUcD3bidI+oAABpc+rgIhioNnYyL8GsW8zrofb0rKb+pIY+ax alex@alex
+            EOT
+        }
+      + name                      = "main"
+      + network_acceleration_type = "standard"
+      + platform_id               = "standard-v1"
+      + service_account_id        = (known after apply)
+      + status                    = (known after apply)
+      + zone                      = "ru-central1-a"
+
+      + boot_disk {
+          + auto_delete = true
+          + device_name = (known after apply)
+          + disk_id     = (known after apply)
+          + mode        = (known after apply)
+
+          + initialize_params {
+              + block_size  = (known after apply)
+              + description = (known after apply)
+              + image_id    = "fd85e63v406oaqdjnc4b"
+              + name        = (known after apply)
+              + size        = 10
+              + snapshot_id = (known after apply)
+              + type        = "network-hdd"
+            }
+        }
+
+      + network_interface {
+          + index              = (known after apply)
+          + ip_address         = (known after apply)
+          + ipv4               = true
+          + ipv6               = (known after apply)
+          + ipv6_address       = (known after apply)
+          + mac_address        = (known after apply)
+          + nat                = true
+          + nat_ip_address     = (known after apply)
+          + nat_ip_version     = (known after apply)
+          + security_group_ids = (known after apply)
+          + subnet_id          = "e9b7ltjppp3nrkuemo66"
+        }
+
+      + placement_policy {
+          + host_affinity_rules = (known after apply)
+          + placement_group_id  = (known after apply)
+        }
+
+      + resources {
+          + core_fraction = 100
+          + cores         = 2
+          + memory        = 2
+        }
+
+      + scheduling_policy {
+          + preemptible = (known after apply)
+        }
+    }
+
+  # yandex_compute_instance.gitlab_instance will be created
+  + resource "yandex_compute_instance" "gitlab_instance" {
+      + created_at                = (known after apply)
+      + folder_id                 = (known after apply)
+      + fqdn                      = (known after apply)
+      + hostname                  = (known after apply)
+      + id                        = (known after apply)
+      + metadata                  = {
+          + "ssh-keys" = <<-EOT
+                centos:ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDAMn6UfaB8p5V2OyPL2nJapIeRar3OGHGwejsAnscFytLX+cT/deFQ8Sg59Wm6wFc3gwPa4LzDgj5nTQgHKdcc2tuW33xF2w2oZfOuI7x3rgDTO+0nIyr7ydNhpsoSx0VsZ2PTtrn5lhB/J0qBcoX4GghMxJuE0DiglSzTC3i6QpqMT+wkdOqrMk0bVmNyQrLBrSFdQfSxNa28fTyk1TQ+m1nD3iGFDpH74kzYG8bcxFfjIVojz1OQJaQov4Jc68i5m9Kvw1OE0lb0JnmS8KTHHBhOCh8sztansh0QUcD3bidI+oAABpc+rgIhioNnYyL8GsW8zrofb0rKb+pIY+ax alex@alex
+            EOT
+        }
+      + name                      = "gitlab"
+      + network_acceleration_type = "standard"
+      + platform_id               = "standard-v1"
+      + service_account_id        = (known after apply)
+      + status                    = (known after apply)
+      + zone                      = "ru-central1-a"
+
+      + boot_disk {
+          + auto_delete = true
+          + device_name = (known after apply)
+          + disk_id     = (known after apply)
+          + mode        = (known after apply)
+
+          + initialize_params {
+              + block_size  = (known after apply)
+              + description = (known after apply)
+              + image_id    = "fd85e63v406oaqdjnc4b"
+              + name        = (known after apply)
+              + size        = 30
+              + snapshot_id = (known after apply)
+              + type        = "network-hdd"
+            }
+        }
+
+      + network_interface {
+          + index              = (known after apply)
+          + ip_address         = (known after apply)
+          + ipv4               = true
+          + ipv6               = (known after apply)
+          + ipv6_address       = (known after apply)
+          + mac_address        = (known after apply)
+          + nat                = (known after apply)
+          + nat_ip_address     = (known after apply)
+          + nat_ip_version     = (known after apply)
+          + security_group_ids = (known after apply)
+          + subnet_id          = "e9b7ltjppp3nrkuemo66"
+        }
+
+      + placement_policy {
+          + host_affinity_rules = (known after apply)
+          + placement_group_id  = (known after apply)
+        }
+
+      + resources {
+          + core_fraction = 100
+          + cores         = 8
+          + memory        = 8
+        }
+
+      + scheduling_policy {
+          + preemptible = (known after apply)
+        }
+    }
+
+  # yandex_compute_instance.monitoring_instance will be created
+  + resource "yandex_compute_instance" "monitoring_instance" {
+      + created_at                = (known after apply)
+      + folder_id                 = (known after apply)
+      + fqdn                      = (known after apply)
+      + hostname                  = (known after apply)
+      + id                        = (known after apply)
+      + metadata                  = {
+          + "ssh-keys" = <<-EOT
+                centos:ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDAMn6UfaB8p5V2OyPL2nJapIeRar3OGHGwejsAnscFytLX+cT/deFQ8Sg59Wm6wFc3gwPa4LzDgj5nTQgHKdcc2tuW33xF2w2oZfOuI7x3rgDTO+0nIyr7ydNhpsoSx0VsZ2PTtrn5lhB/J0qBcoX4GghMxJuE0DiglSzTC3i6QpqMT+wkdOqrMk0bVmNyQrLBrSFdQfSxNa28fTyk1TQ+m1nD3iGFDpH74kzYG8bcxFfjIVojz1OQJaQov4Jc68i5m9Kvw1OE0lb0JnmS8KTHHBhOCh8sztansh0QUcD3bidI+oAABpc+rgIhioNnYyL8GsW8zrofb0rKb+pIY+ax alex@alex
+            EOT
+        }
+      + name                      = "monitoring"
+      + network_acceleration_type = "standard"
+      + platform_id               = "standard-v1"
+      + service_account_id        = (known after apply)
+      + status                    = (known after apply)
+      + zone                      = "ru-central1-a"
+
+      + boot_disk {
+          + auto_delete = true
+          + device_name = (known after apply)
+          + disk_id     = (known after apply)
+          + mode        = (known after apply)
+
+          + initialize_params {
+              + block_size  = (known after apply)
+              + description = (known after apply)
+              + image_id    = "fd85e63v406oaqdjnc4b"
+              + name        = (known after apply)
+              + size        = 10
+              + snapshot_id = (known after apply)
+              + type        = "network-hdd"
+            }
+        }
+
+      + network_interface {
+          + index              = (known after apply)
+          + ip_address         = (known after apply)
+          + ipv4               = true
+          + ipv6               = (known after apply)
+          + ipv6_address       = (known after apply)
+          + mac_address        = (known after apply)
+          + nat                = (known after apply)
+          + nat_ip_address     = (known after apply)
+          + nat_ip_version     = (known after apply)
+          + security_group_ids = (known after apply)
+          + subnet_id          = "e9b7ltjppp3nrkuemo66"
+        }
+
+      + placement_policy {
+          + host_affinity_rules = (known after apply)
+          + placement_group_id  = (known after apply)
+        }
+
+      + resources {
+          + core_fraction = 100
+          + cores         = 4
+          + memory        = 4
+        }
+
+      + scheduling_policy {
+          + preemptible = (known after apply)
+        }
+    }
+
+  # yandex_compute_instance.nat_instance will be created
+  + resource "yandex_compute_instance" "nat_instance" {
+      + created_at                = (known after apply)
+      + folder_id                 = (known after apply)
+      + fqdn                      = (known after apply)
+      + hostname                  = "nat.tcibizov.ru"
+      + id                        = (known after apply)
+      + metadata                  = {
+          + "ssh-keys" = <<-EOT
+                centos:ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDAMn6UfaB8p5V2OyPL2nJapIeRar3OGHGwejsAnscFytLX+cT/deFQ8Sg59Wm6wFc3gwPa4LzDgj5nTQgHKdcc2tuW33xF2w2oZfOuI7x3rgDTO+0nIyr7ydNhpsoSx0VsZ2PTtrn5lhB/J0qBcoX4GghMxJuE0DiglSzTC3i6QpqMT+wkdOqrMk0bVmNyQrLBrSFdQfSxNa28fTyk1TQ+m1nD3iGFDpH74kzYG8bcxFfjIVojz1OQJaQov4Jc68i5m9Kvw1OE0lb0JnmS8KTHHBhOCh8sztansh0QUcD3bidI+oAABpc+rgIhioNnYyL8GsW8zrofb0rKb+pIY+ax alex@alex
+            EOT
+          + "test"     = "test_str"
+        }
+      + name                      = "nat"
+      + network_acceleration_type = "standard"
+      + platform_id               = "standard-v1"
+      + service_account_id        = (known after apply)
+      + status                    = (known after apply)
+      + zone                      = "ru-central1-a"
+
+      + boot_disk {
+          + auto_delete = true
+          + device_name = (known after apply)
+          + disk_id     = (known after apply)
+          + mode        = (known after apply)
+
+          + initialize_params {
+              + block_size  = (known after apply)
+              + description = (known after apply)
+              + image_id    = "fd85e63v406oaqdjnc4b"
+              + name        = (known after apply)
+              + size        = (known after apply)
+              + snapshot_id = (known after apply)
+              + type        = "network-hdd"
+            }
+        }
+
+      + network_interface {
+          + index              = (known after apply)
+          + ip_address         = (known after apply)
+          + ipv4               = true
+          + ipv6               = (known after apply)
+          + ipv6_address       = (known after apply)
+          + mac_address        = (known after apply)
+          + nat                = true
+          + nat_ip_address     = (known after apply)
+          + nat_ip_version     = (known after apply)
+          + security_group_ids = (known after apply)
+          + subnet_id          = "e9b7ltjppp3nrkuemo66"
+        }
+
+      + placement_policy {
+          + host_affinity_rules = (known after apply)
+          + placement_group_id  = (known after apply)
+        }
+
+      + resources {
+          + core_fraction = 100
+          + cores         = 2
+          + memory        = 2
+        }
+
+      + scheduling_policy {
+          + preemptible = (known after apply)
+        }
+    }
+
+  # yandex_compute_instance.runner_instance will be created
+  + resource "yandex_compute_instance" "runner_instance" {
+      + created_at                = (known after apply)
+      + folder_id                 = (known after apply)
+      + fqdn                      = (known after apply)
+      + hostname                  = (known after apply)
+      + id                        = (known after apply)
+      + metadata                  = {
+          + "ssh-keys" = <<-EOT
+                centos:ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDAMn6UfaB8p5V2OyPL2nJapIeRar3OGHGwejsAnscFytLX+cT/deFQ8Sg59Wm6wFc3gwPa4LzDgj5nTQgHKdcc2tuW33xF2w2oZfOuI7x3rgDTO+0nIyr7ydNhpsoSx0VsZ2PTtrn5lhB/J0qBcoX4GghMxJuE0DiglSzTC3i6QpqMT+wkdOqrMk0bVmNyQrLBrSFdQfSxNa28fTyk1TQ+m1nD3iGFDpH74kzYG8bcxFfjIVojz1OQJaQov4Jc68i5m9Kvw1OE0lb0JnmS8KTHHBhOCh8sztansh0QUcD3bidI+oAABpc+rgIhioNnYyL8GsW8zrofb0rKb+pIY+ax alex@alex
+            EOT
+        }
+      + name                      = "runner"
+      + network_acceleration_type = "standard"
+      + platform_id               = "standard-v1"
+      + service_account_id        = (known after apply)
+      + status                    = (known after apply)
+      + zone                      = "ru-central1-a"
+
+      + boot_disk {
+          + auto_delete = true
+          + device_name = (known after apply)
+          + disk_id     = (known after apply)
+          + mode        = (known after apply)
+
+          + initialize_params {
+              + block_size  = (known after apply)
+              + description = (known after apply)
+              + image_id    = "fd85e63v406oaqdjnc4b"
+              + name        = (known after apply)
+              + size        = 30
+              + snapshot_id = (known after apply)
+              + type        = "network-hdd"
+            }
+        }
+
+      + network_interface {
+          + index              = (known after apply)
+          + ip_address         = (known after apply)
+          + ipv4               = true
+          + ipv6               = (known after apply)
+          + ipv6_address       = (known after apply)
+          + mac_address        = (known after apply)
+          + nat                = (known after apply)
+          + nat_ip_address     = (known after apply)
+          + nat_ip_version     = (known after apply)
+          + security_group_ids = (known after apply)
+          + subnet_id          = "e9b7ltjppp3nrkuemo66"
+        }
+
+      + placement_policy {
+          + host_affinity_rules = (known after apply)
+          + placement_group_id  = (known after apply)
+        }
+
+      + resources {
+          + core_fraction = 100
+          + cores         = 4
+          + memory        = 4
+        }
+
+      + scheduling_policy {
+          + preemptible = (known after apply)
+        }
+    }
+
+  # yandex_dns_recordset.alertmanager_recordset will be created
+  + resource "yandex_dns_recordset" "alertmanager_recordset" {
+      + data    = (known after apply)
+      + id      = (known after apply)
+      + name    = "alertmanager.tcibizov.ru."
+      + ttl     = 600
+      + type    = "A"
+      + zone_id = (known after apply)
+    }
+
+  # yandex_dns_recordset.gitlab_recordset will be created
+  + resource "yandex_dns_recordset" "gitlab_recordset" {
+      + data    = (known after apply)
+      + id      = (known after apply)
+      + name    = "gitlab.tcibizov.ru."
+      + ttl     = 600
+      + type    = "A"
+      + zone_id = (known after apply)
+    }
+
+  # yandex_dns_recordset.grafana_recordset will be created
+  + resource "yandex_dns_recordset" "grafana_recordset" {
+      + data    = (known after apply)
+      + id      = (known after apply)
+      + name    = "grafana.tcibizov.ru."
+      + ttl     = 600
+      + type    = "A"
+      + zone_id = (known after apply)
+    }
+
+  # yandex_dns_recordset.prometheus_recordset will be created
+  + resource "yandex_dns_recordset" "prometheus_recordset" {
+      + data    = (known after apply)
+      + id      = (known after apply)
+      + name    = "prometheus.tcibizov.ru."
+      + ttl     = 600
+      + type    = "A"
+      + zone_id = (known after apply)
+    }
+
+  # yandex_dns_recordset.www_recordset will be created
+  + resource "yandex_dns_recordset" "www_recordset" {
+      + data    = (known after apply)
+      + id      = (known after apply)
+      + name    = "www.tcibizov.ru."
+      + ttl     = 600
+      + type    = "A"
+      + zone_id = (known after apply)
+    }
+
+  # yandex_dns_zone.dns_zone will be created
+  + resource "yandex_dns_zone" "dns_zone" {
+      + created_at       = (known after apply)
+      + folder_id        = (known after apply)
+      + id               = (known after apply)
+      + name             = "public-dns-zone"
+      + private_networks = (known after apply)
+      + public           = true
+      + zone             = "tcibizov.ru."
+    }
+
+  # yandex_vpc_network.vpc_network will be created
+  + resource "yandex_vpc_network" "vpc_network" {
+      + created_at                = (known after apply)
+      + default_security_group_id = (known after apply)
+      + folder_id                 = (known after apply)
+      + id                        = (known after apply)
+      + labels                    = (known after apply)
+      + name                      = "vpc-network"
+      + subnet_ids                = (known after apply)
+    }
+
+  # yandex_vpc_route_table.nat_vpc_route_table will be created
+  + resource "yandex_vpc_route_table" "nat_vpc_route_table" {
+      + created_at = (known after apply)
+      + folder_id  = (known after apply)
+      + id         = (known after apply)
+      + labels     = (known after apply)
+      + name       = "nat-route-table"
+      + network_id = (known after apply)
+
+      + static_route {
+          + destination_prefix = "0.0.0.0/0"
+          + next_hop_address   = (known after apply)
+        }
+    }
+
+  # yandex_vpc_subnet.private_vpc_subnet will be created
+  + resource "yandex_vpc_subnet" "private_vpc_subnet" {
+      + created_at     = (known after apply)
+      + folder_id      = (known after apply)
+      + id             = (known after apply)
+      + labels         = (known after apply)
+      + name           = "private-vpc-subnet"
+      + network_id     = (known after apply)
+      + route_table_id = (known after apply)
+      + v4_cidr_blocks = [
+          + "10.100.1.0/24",
+        ]
+      + v6_cidr_blocks = (known after apply)
+      + zone           = "ru-central1-a"
+    }
+
+  # yandex_vpc_subnet.public_vpc_subnet will be created
+  + resource "yandex_vpc_subnet" "public_vpc_subnet" {
+      + created_at     = (known after apply)
+      + folder_id      = (known after apply)
+      + id             = (known after apply)
+      + labels         = (known after apply)
+      + name           = "public-vpc-subnet"
+      + network_id     = (known after apply)
+      + v4_cidr_blocks = [
+          + "10.100.2.0/24",
+        ]
+      + v6_cidr_blocks = (known after apply)
+      + zone           = "ru-central1-a"
+    }
+
+Plan: 18 to add, 0 to change, 0 to destroy.
+
+root@alex:/home/alex/dvpspdc#
+```
 
 
