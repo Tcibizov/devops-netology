@@ -88,7 +88,7 @@ see any changes that are required for your infrastructure.
 If you ever set or change modules or Terraform Settings, run "terraform init"
 again to reinitialize your working directory.
 ```
-3. Выполним 'terraform validate':
+3. Выполним `terraform validate`:
 ```
 Initializing Terraform Cloud...
 
@@ -106,6 +106,6 @@ again to reinitialize your working directory.
 root@alex:/home/alex/dvpspdc# terraform validate
 Success! The configuration is valid.
 ```
-4. Выполним 'terraform plan':
+4. Выполним `terraform plan`:
 
 
