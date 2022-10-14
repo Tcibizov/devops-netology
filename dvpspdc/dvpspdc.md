@@ -308,7 +308,7 @@ root@alex:/home/alex/dvpspdc# terraform validate
 Success! The configuration is valid.
 ```
 4. Выполним `terraform plan`:
-``
+```
 root@alex:/home/alex/dvpspdc# terraform plan
 Running plan in Terraform Cloud. Output will stream here. Pressing Ctrl-C
 will stop streaming the logs, but will not stop the plan running remotely.
