@@ -1772,6 +1772,7 @@ root@alex:/home/alex/dvpspdc#
 Для работы Ansible необходимо добавить IP-адреса:
 
 1. Добавим значение output-переменной Terraform в `~/.ssh/config`:
+
 ```
 Host tcibizov.ru
   HostName 84.201.130.174
@@ -1812,13 +1813,13 @@ Host gitlab.tcibizov.ru
   IdentityFile ~/.ssh/id_rsa
     ProxyJump centos@84.201.130.174
     ProxyCommand ssh -W %h:%p -i .ssh/id_rsa
-    ```
+```
 
 2. Очистим файл `known_hosts` командой `echo "" > ~/.ssh/known_hosts`
 
 3. Добавим IP-адреса серверов в `variables.yml`:
 
-```shell
+```
 app_tcibizov_ru_ip_addr_internal: "10.100.1.14"
 db01_tcibizov_ru_ip_addr_internal: "10.100.1.26"
 db02_tcibizov_ru_ip_addr_internal: "10.100.1.24"
