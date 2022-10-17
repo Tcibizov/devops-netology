@@ -1813,3 +1813,49 @@ Host gitlab.tcibizov.ru
     ProxyJump centos@84.201.130.174
     ProxyCommand ssh -W %h:%p -i .ssh/id_rsa
     ```
+
+2. Очистим файл `known_hosts` командой `echo "" > ~/.ssh/known_hosts`
+
+3. Добавим IP-адреса серверов в `variables.yml`:
+
+```
+app_tcibizov_ru_ip_addr_internal: "10.100.1.14"
+db01_tcibizov_ru_ip_addr_internal: "10.100.1.26"
+db02_tcibizov_ru_ip_addr_internal: "10.100.1.24"
+entrance_tcibizov_ru_ip_addr_external: "51.250.79.127"
+gitlab_tcibizov_ru_ip_addr_internal: "10.100.1.27"
+monitoring_tcibizov_ru_ip_addr_internal: "10.100.1.3"
+runner_tcibizov_ru_ip_addr_internal: "10.100.1.9"
+```
+
+4. Добавим соответствующие IP-адреса в [конфигурацию](ansible/roles/monitoring/stack/prometheus/prometheus.yml) Prometheus:
+
+```shell
+  - job_name: 'entrance-node'
+    scrape_interval: 10s
+    static_configs:
+      - targets: [ '10.100.1.23:9100' ]
+      
+  - job_name: 'gitlab-node'
+    scrape_interval: 10s
+    static_configs:
+      - targets: [ '10.100.1.22:9100' ]
+  
+  - job_name: 'monitoring-node'
+    scrape_interval: 10s
+    static_configs:
+      - targets: [ '10.100.1.34:9100' ]
+                  
+  - job_name: 'wordpress-node'
+    scrape_interval: 10s
+    static_configs:
+      - targets: [ '10.100.1.29:9100' ]
+  - job_name: 'db01-node'
+    scrape_interval: 10s
+    static_configs:
+      - targets: [ '10.100.1.30:9100' ]
+  - job_name: 'db02-node'
+    scrape_interval: 10s
+    static_configs:
+      - targets: [ '10.100.1.16:9100' ]
+```
