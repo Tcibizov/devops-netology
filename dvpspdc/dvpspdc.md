@@ -1749,10 +1749,10 @@ root@alex:/home/alex/dvpspdc#
 
 * **Виртуальные машины**
 
-![Yadnex Cloud VMs](img/yc-vms.png)
+![Yadnex Cloud VMs](img/yc_compute.png)
 
 * **Зона DNS**
 
-![Yadnex Cloud DNS](img/yc-dns.png)
+![Yadnex Cloud DNS](img/yc_dns.png)
 
 Инфраструктура **успешно** развёрнута.
