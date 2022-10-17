@@ -1818,7 +1818,7 @@ Host gitlab.tcibizov.ru
 
 3. Добавим IP-адреса серверов в `variables.yml`:
 
-```
+```shell
 app_tcibizov_ru_ip_addr_internal: "10.100.1.14"
 db01_tcibizov_ru_ip_addr_internal: "10.100.1.26"
 db02_tcibizov_ru_ip_addr_internal: "10.100.1.24"
