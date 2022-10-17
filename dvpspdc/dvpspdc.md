@@ -1756,3 +1756,60 @@ root@alex:/home/alex/dvpspdc#
 ![Yadnex Cloud DNS](img/yc_dns.png)
 
 Инфраструктура **успешно** развёрнута.
+
+## Ansible
+
+Подготовим роли Ansible для созданной инфраструктуры. Файлы конфигурации доступны по [ссылке](ansible).
+
+**Краткое описание**
+
+* В `roles/common` добавим общие сценарии для установки Docker, Docker Compose и Node exporter.
+* В `roles/entrance` добавим роль для работы основного сервера.
+* В `roles/mysql` добавим роль для работы кластера MySQL.
+* В `roles/wordpress` добавим роль для работы WordPress.
+* В `roles/monitoring` добавим роль для работы Prometheus, Alert Manager и Grafana.
+
+Для работы Ansible необходимо добавить IP-адреса:
+
+1. Добавим значение output-переменной Terraform в `~/.ssh/config`:
+```
+Host tcibizov.ru
+  HostName 84.201.130.174
+  User centos
+  IdentityFile ~/.ssh/id_rsa
+  
+Host db01.tcibizov.ru
+  HostName 10.128.0.27
+  User centos
+  IdentityFile ~/.ssh/id_rsa
+    ProxyJump centos@84.201.130.174
+    ProxyCommand ssh -W %h:%p -i .ssh/id_rsa
+
+Host db02.tcibizov.ru
+  HostName 10.128.0.14
+  User centos
+  IdentityFile ~/.ssh/id_rsa
+    ProxyJump centos@84.201.130.174
+    ProxyCommand ssh -W %h:%p -i .ssh/id_rsa
+
+Host app.tcibizov.ru
+  HostName 10.128.0.7
+  User centos
+  IdentityFile ~/.ssh/id_rsa
+    ProxyJump centos@84.201.130.174
+    ProxyCommand ssh -W %h:%p -i .ssh/id_rsa
+
+Host monitoring.tcibizov.ru
+  HostName 10.128.0.30
+  User centos
+  IdentityFile ~/.ssh/id_rsa
+    ProxyJump centos@84.201.130.174
+    ProxyCommand ssh -W %h:%p -i .ssh/id_rsa
+
+Host gitlab.tcibizov.ru
+  HostName 10.128.0.10
+  User centos
+  IdentityFile ~/.ssh/id_rsa
+    ProxyJump centos@84.201.130.174
+    ProxyCommand ssh -W %h:%p -i .ssh/id_rsa
+    ```
