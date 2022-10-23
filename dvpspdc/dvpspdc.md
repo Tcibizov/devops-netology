@@ -1771,7 +1771,7 @@ root@alex:/home/alex/dvpspdc#
 
 ```
 Host tcibizov.ru
-  HostName 51.250.75.22
+  HostName 178.154.227.109
   User centos
   IdentityFile ~/.ssh/id_rsa
   
@@ -1779,35 +1779,35 @@ Host db01.tcibizov.ru
   HostName 10.128.0.16
   User centos
   IdentityFile ~/.ssh/id_rsa
-    ProxyJump centos@84.201.130.174
+    ProxyJump centos@178.154.227.109
     ProxyCommand ssh -W %h:%p -i .ssh/id_rsa
 
 Host db02.tcibizov.ru
   HostName 10.128.0.13
   User centos
   IdentityFile ~/.ssh/id_rsa
-    ProxyJump centos@84.201.130.174
+    ProxyJump centos@178.154.227.109
     ProxyCommand ssh -W %h:%p -i .ssh/id_rsa
 
 Host app.tcibizov.ru
   HostName 10.128.0.4
   User centos
   IdentityFile ~/.ssh/id_rsa
-    ProxyJump centos@84.201.130.174
+    ProxyJump centos@178.154.227.109
     ProxyCommand ssh -W %h:%p -i .ssh/id_rsa
 
 Host monitoring.tcibizov.ru
   HostName 10.128.0.21
   User centos
   IdentityFile ~/.ssh/id_rsa
-    ProxyJump centos@84.201.130.174
+    ProxyJump centos@178.154.227.109
     ProxyCommand ssh -W %h:%p -i .ssh/id_rsa
 
 Host gitlab.tcibizov.ru
   HostName 10.128.0.26
   User centos
   IdentityFile ~/.ssh/id_rsa
-    ProxyJump centos@84.201.130.174
+    ProxyJump centos@178.154.227.109
     ProxyCommand ssh -W %h:%p -i .ssh/id_rsa
 ```
 
