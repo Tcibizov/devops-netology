@@ -984,6 +984,7 @@ root@alex:/home/alex/dvpspdc#
 4. Выполним `terraform applay`:
 ```
 root@alex:/home/alex/dvpspdc# terraform apply
+root@alex:/home/alex/dvpspdc# terraform apply
 Running apply in Terraform Cloud. Output will stream here. Pressing Ctrl-C
 will cancel the remote apply if it's still pending. If the apply started it
 will stop streaming the logs, but will not stop the apply running remotely.
@@ -991,7 +992,7 @@ will stop streaming the logs, but will not stop the apply running remotely.
 Preparing the remote apply...
 
 To view this run in a browser, visit:
-https://app.terraform.io/app/tcibizov/dvpspdc/runs/run-4fTfK1PuBLtGmZHS
+https://app.terraform.io/app/tcibizov/dvpspdc/runs/run-6QkvTuGUVwjkcA5z
 
 Waiting for the plan to start...
 
@@ -1661,85 +1662,80 @@ Do you want to perform these actions in workspace "dvpspdc"?
 
   Enter a value: yes
 
-yandex_compute_instance.db01_instance: Creating...
-yandex_compute_instance.runner_instance: Creating...
 yandex_compute_instance.nat_instance: Creating...
-yandex_compute_instance.db02_instance: Creating...
 yandex_compute_instance.app_instance: Creating...
+yandex_compute_instance.db01_instance: Creating...
 yandex_compute_instance.entrance_instance: Creating...
+yandex_compute_instance.runner_instance: Creating...
+yandex_compute_instance.db02_instance: Creating...
 yandex_compute_instance.gitlab_instance: Creating...
 yandex_compute_instance.monitoring_instance: Creating...
-yandex_vpc_network.vpc_network: Creation complete after 3s [id=enpqq0mj6glef7bd603v]
+yandex_vpc_network.vpc_network: Creation complete after 3s [id=enpeen893b877cihuhau]
 yandex_dns_zone.dns_zone: Creating...
 yandex_vpc_subnet.public_vpc_subnet: Creating...
-yandex_vpc_subnet.public_vpc_subnet: Creation complete after 1s [id=e9brpj3egqa209c713rs]
-yandex_dns_zone.dns_zone: Creation complete after 1s [id=dnsd7r0fep64qd28fht5]
-yandex_compute_instance.db01_instance: Still creating... [10s elapsed]
-yandex_compute_instance.runner_instance: Still creating... [10s elapsed]
+yandex_vpc_subnet.public_vpc_subnet: Creation complete after 1s [id=e9b6j0iotkrhhocnquih]
+yandex_dns_zone.dns_zone: Creation complete after 1s [id=dns7s9j6798pmktvv5m5]
 yandex_compute_instance.nat_instance: Still creating... [10s elapsed]
+yandex_compute_instance.app_instance: Still creating... [10s elapsed]
+yandex_compute_instance.db01_instance: Still creating... [10s elapsed]
+yandex_compute_instance.entrance_instance: Still creating... [10s elapsed]
+yandex_compute_instance.runner_instance: Still creating... [10s elapsed]
+yandex_compute_instance.gitlab_instance: Still creating... [10s elapsed]
 yandex_compute_instance.db02_instance: Still creating... [10s elapsed]
 yandex_compute_instance.monitoring_instance: Still creating... [10s elapsed]
-yandex_compute_instance.gitlab_instance: Still creating... [10s elapsed]
-yandex_compute_instance.app_instance: Still creating... [10s elapsed]
-yandex_compute_instance.entrance_instance: Still creating... [10s elapsed]
-yandex_compute_instance.runner_instance: Still creating... [20s elapsed]
-yandex_compute_instance.db01_instance: Still creating... [20s elapsed]
-yandex_compute_instance.nat_instance: Still creating... [20s elapsed]
-yandex_compute_instance.db02_instance: Still creating... [20s elapsed]
-yandex_compute_instance.gitlab_instance: Still creating... [20s elapsed]
-yandex_compute_instance.entrance_instance: Still creating... [20s elapsed]
 yandex_compute_instance.app_instance: Still creating... [20s elapsed]
+yandex_compute_instance.nat_instance: Still creating... [20s elapsed]
+yandex_compute_instance.db01_instance: Still creating... [20s elapsed]
+yandex_compute_instance.entrance_instance: Still creating... [20s elapsed]
+yandex_compute_instance.runner_instance: Still creating... [20s elapsed]
 yandex_compute_instance.monitoring_instance: Still creating... [20s elapsed]
-yandex_compute_instance.db01_instance: Still creating... [30s elapsed]
-yandex_compute_instance.runner_instance: Still creating... [30s elapsed]
+yandex_compute_instance.gitlab_instance: Still creating... [20s elapsed]
+yandex_compute_instance.db02_instance: Still creating... [20s elapsed]
 yandex_compute_instance.nat_instance: Still creating... [30s elapsed]
-yandex_compute_instance.db02_instance: Still creating... [30s elapsed]
-yandex_compute_instance.gitlab_instance: Still creating... [30s elapsed]
-yandex_compute_instance.entrance_instance: Still creating... [30s elapsed]
 yandex_compute_instance.app_instance: Still creating... [30s elapsed]
+yandex_compute_instance.db01_instance: Still creating... [30s elapsed]
+yandex_compute_instance.entrance_instance: Still creating... [30s elapsed]
+yandex_compute_instance.runner_instance: Still creating... [30s elapsed]
+yandex_compute_instance.db02_instance: Still creating... [30s elapsed]
 yandex_compute_instance.monitoring_instance: Still creating... [30s elapsed]
-yandex_compute_instance.runner_instance: Still creating... [40s elapsed]
+yandex_compute_instance.gitlab_instance: Still creating... [30s elapsed]
+yandex_compute_instance.app_instance: Still creating... [40s elapsed]
 yandex_compute_instance.nat_instance: Still creating... [40s elapsed]
 yandex_compute_instance.db01_instance: Still creating... [40s elapsed]
+yandex_compute_instance.runner_instance: Still creating... [40s elapsed]
+yandex_compute_instance.entrance_instance: Still creating... [40s elapsed]
+yandex_compute_instance.gitlab_instance: Still creating... [40s elapsed]
 yandex_compute_instance.db02_instance: Still creating... [40s elapsed]
 yandex_compute_instance.monitoring_instance: Still creating... [40s elapsed]
-yandex_compute_instance.gitlab_instance: Still creating... [40s elapsed]
-yandex_compute_instance.app_instance: Still creating... [40s elapsed]
-yandex_compute_instance.entrance_instance: Still creating... [40s elapsed]
-yandex_compute_instance.app_instance: Creation complete after 49s [id=fhmtp3urqsgblmt3ed47]
-yandex_compute_instance.monitoring_instance: Creation complete after 50s [id=fhm97te8r1fue2gc3urd]
-yandex_compute_instance.runner_instance: Still creating... [50s elapsed]
-yandex_compute_instance.db01_instance: Still creating... [50s elapsed]
-yandex_compute_instance.nat_instance: Still creating... [50s elapsed]
-yandex_compute_instance.db02_instance: Still creating... [50s elapsed]
-yandex_compute_instance.gitlab_instance: Still creating... [50s elapsed]
-yandex_compute_instance.entrance_instance: Still creating... [50s elapsed]
-yandex_compute_instance.nat_instance: Creation complete after 54s [id=fhmmp68so0sb2f11tap7]
-yandex_vpc_route_table.nat_vpc_route_table: Creating...
-yandex_vpc_route_table.nat_vpc_route_table: Creation complete after 2s [id=enpcjdb18qaeqa3efglj]
-yandex_vpc_subnet.private_vpc_subnet: Creating...
-yandex_compute_instance.runner_instance: Creation complete after 57s [id=fhm34nfad53q5n2nuhl4]
-yandex_vpc_subnet.private_vpc_subnet: Creation complete after 1s [id=e9bncth7k5iio3jdrchp]
-yandex_compute_instance.db01_instance: Creation complete after 57s [id=fhmhshd5mp41qdbpe8vv]
-yandex_compute_instance.db02_instance: Creation complete after 1m0s [id=fhmvo3gttv6ea21a7p63]
-yandex_compute_instance.gitlab_instance: Still creating... [1m0s elapsed]
-yandex_compute_instance.entrance_instance: Still creating... [1m0s elapsed]
-yandex_compute_instance.gitlab_instance: Creation complete after 1m2s [id=fhmcvofp60ga92lf5j65]
-yandex_compute_instance.entrance_instance: Creation complete after 1m4s [id=fhmeqq2fjoud61tf8c8o]
-yandex_dns_recordset.prometheus_recordset: Creating...
-yandex_dns_recordset.gitlab_recordset: Creating...
+yandex_compute_instance.db01_instance: Creation complete after 44s [id=fhmj1e7trnusb132jpdu]
+yandex_compute_instance.runner_instance: Creation complete after 45s [id=fhme8tl9t757804m8v5h]
+yandex_compute_instance.entrance_instance: Creation complete after 47s [id=fhmbcbv93uok1a0m5fec]
 yandex_dns_recordset.www_recordset: Creating...
-yandex_dns_recordset.alertmanager_recordset: Creating...
+yandex_dns_recordset.prometheus_recordset: Creating...
 yandex_dns_recordset.grafana_recordset: Creating...
-yandex_dns_recordset.grafana_recordset: Creation complete after 1s [id=dnsd7r0fep64qd28fht5/grafana.tcibizov.ru./A]
-yandex_dns_recordset.www_recordset: Creation complete after 1s [id=dnsd7r0fep64qd28fht5/www.tcibizov.ru./A]
-yandex_dns_recordset.alertmanager_recordset: Creation complete after 2s [id=dnsd7r0fep64qd28fht5/alertmanager.tcibizov.ru./A]
-yandex_dns_recordset.gitlab_recordset: Creation complete after 2s [id=dnsd7r0fep64qd28fht5/gitlab.tcibizov.ru./A]
-yandex_dns_recordset.prometheus_recordset: Creation complete after 2s [id=dnsd7r0fep64qd28fht5/prometheus.tcibizov.ru./A]
+yandex_dns_recordset.gitlab_recordset: Creating...
+yandex_dns_recordset.alertmanager_recordset: Creating...
+yandex_compute_instance.db02_instance: Creation complete after 47s [id=fhmhac1fea8kv5c2lio7]
+yandex_dns_recordset.gitlab_recordset: Creation complete after 1s [id=dns7s9j6798pmktvv5m5/gitlab.tcibizov.ru./A]
+yandex_dns_recordset.prometheus_recordset: Creation complete after 1s [id=dns7s9j6798pmktvv5m5/prometheus.tcibizov.ru./A]
+yandex_dns_recordset.www_recordset: Creation complete after 1s [id=dns7s9j6798pmktvv5m5/www.tcibizov.ru./A]
+yandex_dns_recordset.grafana_recordset: Creation complete after 2s [id=dns7s9j6798pmktvv5m5/grafana.tcibizov.ru./A]
+yandex_dns_recordset.alertmanager_recordset: Creation complete after 2s [id=dns7s9j6798pmktvv5m5/alertmanager.tcibizov.ru./A]
+yandex_compute_instance.app_instance: Creation complete after 49s [id=fhmfob9np81iafq9ffi9]
+yandex_compute_instance.nat_instance: Creation complete after 50s [id=fhm18a6qo0f22lhjhv0b]
+yandex_vpc_route_table.nat_vpc_route_table: Creating...
+yandex_compute_instance.gitlab_instance: Still creating... [50s elapsed]
+yandex_compute_instance.monitoring_instance: Still creating... [50s elapsed]
+yandex_compute_instance.gitlab_instance: Creation complete after 51s [id=fhmus4tftbdff3fu3heh]
+yandex_vpc_route_table.nat_vpc_route_table: Creation complete after 1s [id=enptbg3ch53qft6911u3]
+yandex_vpc_subnet.private_vpc_subnet: Creating...
+yandex_vpc_subnet.private_vpc_subnet: Creation complete after 1s [id=e9bl7mulfvc2mgu9v5k1]
+yandex_compute_instance.monitoring_instance: Creation complete after 1m0s [id=fhm6eqsgfdm4vlh7qhkp]
 
 Apply complete! Resources: 18 added, 0 changed, 0 destroyed.
 
 root@alex:/home/alex/dvpspdc# 
+
 ```
 После создания инфраструктуры проверим Terraform Cloud:
 
