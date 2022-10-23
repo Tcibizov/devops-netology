@@ -1827,31 +1827,47 @@ monitoring_tcibizov_ru_ip_addr_internal: "10.128.0.21"
 4. Добавим соответствующие IP-адреса в [конфигурацию](ansible/roles/monitoring/stack/prometheus/prometheus.yml) Prometheus:
 
 ```shell
+  global:
+  scrape_interval: 15s
+  evaluation_interval: 15s
+
+rule_files:
+  - 'alert.rules'
+
+scrape_configs:
+  - job_name: 'prometheus'
+    scrape_interval: 10s
+    static_configs:
+      - targets: [ 'localhost:9090' ]
+
+
   - job_name: 'entrance-node'
     scrape_interval: 10s
     static_configs:
-      - targets: [ '10.100.1.23:9100' ]
-      
+      - targets: [ '178.154.227.109:9100' ]
+
   - job_name: 'gitlab-node'
     scrape_interval: 10s
     static_configs:
-      - targets: [ '10.100.1.22:9100' ]
-  
+      - targets: [ '10.128.0.26:9100' ]
+
   - job_name: 'monitoring-node'
     scrape_interval: 10s
     static_configs:
-      - targets: [ '10.100.1.34:9100' ]
-                  
+      - targets: [ '10.128.0.21:9100' ]
+
   - job_name: 'wordpress-node'
     scrape_interval: 10s
     static_configs:
-      - targets: [ '10.100.1.29:9100' ]
+      - targets: [ '10.128.0.4:9100' ]
+
   - job_name: 'db01-node'
     scrape_interval: 10s
     static_configs:
-      - targets: [ '10.100.1.30:9100' ]
+      - targets: [ '10.128.0.16:9100' ]
+
   - job_name: 'db02-node'
     scrape_interval: 10s
     static_configs:
-      - targets: [ '10.100.1.16:9100' ]
+      - targets: [ '10.128.0.13:9100' ]
 ```
