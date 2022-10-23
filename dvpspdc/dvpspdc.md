@@ -1816,13 +1816,12 @@ Host gitlab.tcibizov.ru
 3. Добавим IP-адреса серверов в `variables.yml`:
 
 ```
-app_tcibizov_ru_ip_addr_internal: "10.100.1.14"
-db01_tcibizov_ru_ip_addr_internal: "10.100.1.26"
-db02_tcibizov_ru_ip_addr_internal: "10.100.1.24"
-entrance_tcibizov_ru_ip_addr_external: "51.250.79.127"
-gitlab_tcibizov_ru_ip_addr_internal: "10.100.1.27"
-monitoring_tcibizov_ru_ip_addr_internal: "10.100.1.3"
-runner_tcibizov_ru_ip_addr_internal: "10.100.1.9"
+app_tcibizov_ru_ip_addr_internal: "10.128.0.4"
+db01_tcibizov_ru_ip_addr_internal: "10.128.0.16"
+db02_tcibizov_ru_ip_addr_internal: "10.128.0.13"
+entrance_tcibizov_ru_ip_addr_external: "178.154.227.109"
+gitlab_tcibizov_ru_ip_addr_internal: "10.128.0.26"
+monitoring_tcibizov_ru_ip_addr_internal: "10.128.0.21"
 ```
 
 4. Добавим соответствующие IP-адреса в [конфигурацию](ansible/roles/monitoring/stack/prometheus/prometheus.yml) Prometheus:
