@@ -34,6 +34,16 @@ provider "yandex" {
 ```
 2. В `main.tf`пропишем конфигурацию:
 ```
+terraform {
+  cloud {
+    organization = "tcibizov"
+
+    workspaces {
+      name = "dvpspdc"
+    }
+  }
+}
+
 resource "yandex_compute_instance" "nat_instance" {
   name     = "nat"
   hostname = "nat.tcibizov.ru"
@@ -46,7 +56,7 @@ resource "yandex_compute_instance" "nat_instance" {
 
   boot_disk {
     initialize_params {
-      image_id = "fd85e63v406oaqdjnc4b"
+      image_id = "fd8p0fni09vfq2to3h3u"
     }
   }
 
@@ -57,7 +67,7 @@ resource "yandex_compute_instance" "nat_instance" {
 
   metadata = {
     test     = "test_str"
-    ssh-keys = "centos:${file("~/.ssh/id_rsa.pub")}"
+    ssh-keys = "centos:${file("ssh/id_rsa.pub")}"
   }
 }
 
@@ -72,7 +82,7 @@ resource "yandex_compute_instance" "entrance_instance" {
 
   boot_disk {
     initialize_params {
-      image_id = "fd85e63v406oaqdjnc4b"
+      image_id = "fd8p0fni09vfq2to3h3u"
       size     = 10
     }
   }
@@ -83,7 +93,7 @@ resource "yandex_compute_instance" "entrance_instance" {
   }
 
   metadata = {
-    ssh-keys = "centos:${file("~/.ssh/id_rsa.pub")}"
+    ssh-keys = "centos:${file("ssh/id_rsa.pub")}"
   }
 }
 
@@ -98,7 +108,7 @@ resource "yandex_compute_instance" "db01_instance" {
 
   boot_disk {
     initialize_params {
-      image_id = "fd85e63v406oaqdjnc4b"
+      image_id = "fd8p0fni09vfq2to3h3u"
       size     = 10
     }
   }
@@ -108,7 +118,7 @@ resource "yandex_compute_instance" "db01_instance" {
   }
 
   metadata = {
-    ssh-keys = "centos:${file("~/.ssh/id_rsa.pub")}"
+    ssh-keys = "centos:${file("ssh/id_rsa.pub")}"
   }
 }
 
@@ -123,7 +133,7 @@ resource "yandex_compute_instance" "db02_instance" {
 
   boot_disk {
     initialize_params {
-      image_id = "fd85e63v406oaqdjnc4b"
+      image_id = "fd8p0fni09vfq2to3h3u"
       size     = 10
     }
   }
@@ -133,7 +143,7 @@ resource "yandex_compute_instance" "db02_instance" {
   }
 
   metadata = {
-    ssh-keys = "centos:${file("~/.ssh/id_rsa.pub")}"
+    ssh-keys = "centos:${file("ssh/id_rsa.pub")}"
   }
 }
 
@@ -148,7 +158,7 @@ resource "yandex_compute_instance" "app_instance" {
 
   boot_disk {
     initialize_params {
-      image_id = "fd85e63v406oaqdjnc4b"
+      image_id = "fd8p0fni09vfq2to3h3u"
       size     = 10
     }
   }
@@ -158,7 +168,7 @@ resource "yandex_compute_instance" "app_instance" {
   }
 
   metadata = {
-    ssh-keys = "centos:${file("~/.ssh/id_rsa.pub")}"
+    ssh-keys = "centos:${file("ssh/id_rsa.pub")}"
   }
 }
 
@@ -173,7 +183,7 @@ resource "yandex_compute_instance" "monitoring_instance" {
 
   boot_disk {
     initialize_params {
-      image_id = "fd85e63v406oaqdjnc4b"
+      image_id = "fd8p0fni09vfq2to3h3u"
       size     = 10
     }
   }
@@ -183,7 +193,7 @@ resource "yandex_compute_instance" "monitoring_instance" {
   }
 
   metadata = {
-    ssh-keys = "centos:${file("~/.ssh/id_rsa.pub")}"
+    ssh-keys = "centos:${file("ssh/id_rsa.pub")}"
   }
 }
 
@@ -198,7 +208,7 @@ resource "yandex_compute_instance" "gitlab_instance" {
 
   boot_disk {
     initialize_params {
-      image_id = "fd85e63v406oaqdjnc4b"
+      image_id = "fd8p0fni09vfq2to3h3u"
       size     = 30
     }
   }
@@ -208,7 +218,7 @@ resource "yandex_compute_instance" "gitlab_instance" {
   }
 
   metadata = {
-    ssh-keys = "centos:${file("~/.ssh/id_rsa.pub")}"
+    ssh-keys = "centos:${file("ssh/id_rsa.pub")}"
   }
 }
 
@@ -223,7 +233,7 @@ resource "yandex_compute_instance" "runner_instance" {
 
   boot_disk {
     initialize_params {
-      image_id = "fd85e63v406oaqdjnc4b"
+      image_id = "fd8p0fni09vfq2to3h3u"
       size     = 30
     }
   }
@@ -233,7 +243,7 @@ resource "yandex_compute_instance" "runner_instance" {
   }
 
   metadata = {
-    ssh-keys = "centos:${file("~/.ssh/id_rsa.pub")}"
+    ssh-keys = "centos:${file("ssh/id_rsa.pub")}"
   }
 }
 ```
@@ -316,7 +326,7 @@ will stop streaming the logs, but will not stop the plan running remotely.
 Preparing the remote plan...
 
 To view this run in a browser, visit:
-https://app.terraform.io/app/tcibizov/dvpspdc/runs/run-SQy2iFkA5BjGQTFm
+https://app.terraform.io/app/tcibizov/dvpspdc/runs/run-jxiEsW5D1Y3YEZmo
 
 Waiting for the plan to start...
 
@@ -358,7 +368,7 @@ Terraform will perform the following actions:
           + initialize_params {
               + block_size  = (known after apply)
               + description = (known after apply)
-              + image_id    = "fd85e63v406oaqdjnc4b"
+              + image_id    = "fd8p0fni09vfq2to3h3u"
               + name        = (known after apply)
               + size        = 10
               + snapshot_id = (known after apply)
@@ -424,7 +434,7 @@ Terraform will perform the following actions:
           + initialize_params {
               + block_size  = (known after apply)
               + description = (known after apply)
-              + image_id    = "fd85e63v406oaqdjnc4b"
+              + image_id    = "fd8p0fni09vfq2to3h3u"
               + name        = (known after apply)
               + size        = 10
               + snapshot_id = (known after apply)
@@ -490,7 +500,7 @@ Terraform will perform the following actions:
           + initialize_params {
               + block_size  = (known after apply)
               + description = (known after apply)
-              + image_id    = "fd85e63v406oaqdjnc4b"
+              + image_id    = "fd8p0fni09vfq2to3h3u"
               + name        = (known after apply)
               + size        = 10
               + snapshot_id = (known after apply)
@@ -556,7 +566,7 @@ Terraform will perform the following actions:
           + initialize_params {
               + block_size  = (known after apply)
               + description = (known after apply)
-              + image_id    = "fd85e63v406oaqdjnc4b"
+              + image_id    = "fd8p0fni09vfq2to3h3u"
               + name        = (known after apply)
               + size        = 10
               + snapshot_id = (known after apply)
@@ -622,7 +632,7 @@ Terraform will perform the following actions:
           + initialize_params {
               + block_size  = (known after apply)
               + description = (known after apply)
-              + image_id    = "fd85e63v406oaqdjnc4b"
+              + image_id    = "fd8p0fni09vfq2to3h3u"
               + name        = (known after apply)
               + size        = 30
               + snapshot_id = (known after apply)
@@ -688,7 +698,7 @@ Terraform will perform the following actions:
           + initialize_params {
               + block_size  = (known after apply)
               + description = (known after apply)
-              + image_id    = "fd85e63v406oaqdjnc4b"
+              + image_id    = "fd8p0fni09vfq2to3h3u"
               + name        = (known after apply)
               + size        = 10
               + snapshot_id = (known after apply)
@@ -755,7 +765,7 @@ Terraform will perform the following actions:
           + initialize_params {
               + block_size  = (known after apply)
               + description = (known after apply)
-              + image_id    = "fd85e63v406oaqdjnc4b"
+              + image_id    = "fd8p0fni09vfq2to3h3u"
               + name        = (known after apply)
               + size        = (known after apply)
               + snapshot_id = (known after apply)
@@ -821,7 +831,7 @@ Terraform will perform the following actions:
           + initialize_params {
               + block_size  = (known after apply)
               + description = (known after apply)
-              + image_id    = "fd85e63v406oaqdjnc4b"
+              + image_id    = "fd8p0fni09vfq2to3h3u"
               + name        = (known after apply)
               + size        = 30
               + snapshot_id = (known after apply)
@@ -983,7 +993,18 @@ root@alex:/home/alex/dvpspdc#
 ```
 4. Выполним `terraform applay`:
 ```
-root@alex:/home/alex/dvpspdc# terraform apply
+root@alex:/home/alex/dvpspdc# terraform applay
+Terraform has no command named "applay". Did you mean "apply"?
+
+To see all of Terraform's top-level commands, run:
+  terraform -help
+
+root@alex:/home/alex/dvpspdc# terraform aplay
+Terraform has no command named "aplay". Did you mean "apply"?
+
+To see all of Terraform's top-level commands, run:
+  terraform -help
+
 root@alex:/home/alex/dvpspdc# terraform apply
 Running apply in Terraform Cloud. Output will stream here. Pressing Ctrl-C
 will cancel the remote apply if it's still pending. If the apply started it
@@ -992,7 +1013,7 @@ will stop streaming the logs, but will not stop the apply running remotely.
 Preparing the remote apply...
 
 To view this run in a browser, visit:
-https://app.terraform.io/app/tcibizov/dvpspdc/runs/run-6QkvTuGUVwjkcA5z
+https://app.terraform.io/app/tcibizov/dvpspdc/runs/run-1qHsDsgKR3uwsZbS
 
 Waiting for the plan to start...
 
@@ -1034,7 +1055,7 @@ Terraform will perform the following actions:
           + initialize_params {
               + block_size  = (known after apply)
               + description = (known after apply)
-              + image_id    = "fd85e63v406oaqdjnc4b"
+              + image_id    = "fd8p0fni09vfq2to3h3u"
               + name        = (known after apply)
               + size        = 10
               + snapshot_id = (known after apply)
@@ -1100,7 +1121,7 @@ Terraform will perform the following actions:
           + initialize_params {
               + block_size  = (known after apply)
               + description = (known after apply)
-              + image_id    = "fd85e63v406oaqdjnc4b"
+              + image_id    = "fd8p0fni09vfq2to3h3u"
               + name        = (known after apply)
               + size        = 10
               + snapshot_id = (known after apply)
@@ -1166,7 +1187,7 @@ Terraform will perform the following actions:
           + initialize_params {
               + block_size  = (known after apply)
               + description = (known after apply)
-              + image_id    = "fd85e63v406oaqdjnc4b"
+              + image_id    = "fd8p0fni09vfq2to3h3u"
               + name        = (known after apply)
               + size        = 10
               + snapshot_id = (known after apply)
@@ -1232,7 +1253,7 @@ Terraform will perform the following actions:
           + initialize_params {
               + block_size  = (known after apply)
               + description = (known after apply)
-              + image_id    = "fd85e63v406oaqdjnc4b"
+              + image_id    = "fd8p0fni09vfq2to3h3u"
               + name        = (known after apply)
               + size        = 10
               + snapshot_id = (known after apply)
@@ -1298,7 +1319,7 @@ Terraform will perform the following actions:
           + initialize_params {
               + block_size  = (known after apply)
               + description = (known after apply)
-              + image_id    = "fd85e63v406oaqdjnc4b"
+              + image_id    = "fd8p0fni09vfq2to3h3u"
               + name        = (known after apply)
               + size        = 30
               + snapshot_id = (known after apply)
@@ -1364,7 +1385,7 @@ Terraform will perform the following actions:
           + initialize_params {
               + block_size  = (known after apply)
               + description = (known after apply)
-              + image_id    = "fd85e63v406oaqdjnc4b"
+              + image_id    = "fd8p0fni09vfq2to3h3u"
               + name        = (known after apply)
               + size        = 10
               + snapshot_id = (known after apply)
@@ -1431,7 +1452,7 @@ Terraform will perform the following actions:
           + initialize_params {
               + block_size  = (known after apply)
               + description = (known after apply)
-              + image_id    = "fd85e63v406oaqdjnc4b"
+              + image_id    = "fd8p0fni09vfq2to3h3u"
               + name        = (known after apply)
               + size        = (known after apply)
               + snapshot_id = (known after apply)
@@ -1497,7 +1518,7 @@ Terraform will perform the following actions:
           + initialize_params {
               + block_size  = (known after apply)
               + description = (known after apply)
-              + image_id    = "fd85e63v406oaqdjnc4b"
+              + image_id    = "fd8p0fni09vfq2to3h3u"
               + name        = (known after apply)
               + size        = 30
               + snapshot_id = (known after apply)
@@ -1662,80 +1683,83 @@ Do you want to perform these actions in workspace "dvpspdc"?
 
   Enter a value: yes
 
-yandex_compute_instance.nat_instance: Creating...
-yandex_compute_instance.app_instance: Creating...
 yandex_compute_instance.db01_instance: Creating...
-yandex_compute_instance.entrance_instance: Creating...
 yandex_compute_instance.runner_instance: Creating...
 yandex_compute_instance.db02_instance: Creating...
 yandex_compute_instance.gitlab_instance: Creating...
+yandex_compute_instance.app_instance: Creating...
+yandex_compute_instance.entrance_instance: Creating...
 yandex_compute_instance.monitoring_instance: Creating...
-yandex_vpc_network.vpc_network: Creation complete after 3s [id=enpeen893b877cihuhau]
+yandex_compute_instance.nat_instance: Creating...
+yandex_vpc_network.vpc_network: Creation complete after 3s [id=enpn2p2f14l00i1qcui2]
 yandex_dns_zone.dns_zone: Creating...
 yandex_vpc_subnet.public_vpc_subnet: Creating...
-yandex_vpc_subnet.public_vpc_subnet: Creation complete after 1s [id=e9b6j0iotkrhhocnquih]
-yandex_dns_zone.dns_zone: Creation complete after 1s [id=dns7s9j6798pmktvv5m5]
-yandex_compute_instance.nat_instance: Still creating... [10s elapsed]
-yandex_compute_instance.app_instance: Still creating... [10s elapsed]
-yandex_compute_instance.db01_instance: Still creating... [10s elapsed]
-yandex_compute_instance.entrance_instance: Still creating... [10s elapsed]
-yandex_compute_instance.runner_instance: Still creating... [10s elapsed]
-yandex_compute_instance.gitlab_instance: Still creating... [10s elapsed]
+yandex_vpc_subnet.public_vpc_subnet: Creation complete after 2s [id=e9bqojpevnbnhjii62b8]
+yandex_dns_zone.dns_zone: Creation complete after 2s [id=dns0bc9b3fphm1bhgbpu]
 yandex_compute_instance.db02_instance: Still creating... [10s elapsed]
+yandex_compute_instance.db01_instance: Still creating... [10s elapsed]
+yandex_compute_instance.gitlab_instance: Still creating... [10s elapsed]
+yandex_compute_instance.runner_instance: Still creating... [10s elapsed]
+yandex_compute_instance.app_instance: Still creating... [10s elapsed]
+yandex_compute_instance.entrance_instance: Still creating... [10s elapsed]
 yandex_compute_instance.monitoring_instance: Still creating... [10s elapsed]
-yandex_compute_instance.app_instance: Still creating... [20s elapsed]
-yandex_compute_instance.nat_instance: Still creating... [20s elapsed]
-yandex_compute_instance.db01_instance: Still creating... [20s elapsed]
-yandex_compute_instance.entrance_instance: Still creating... [20s elapsed]
-yandex_compute_instance.runner_instance: Still creating... [20s elapsed]
-yandex_compute_instance.monitoring_instance: Still creating... [20s elapsed]
-yandex_compute_instance.gitlab_instance: Still creating... [20s elapsed]
+yandex_compute_instance.nat_instance: Still creating... [10s elapsed]
 yandex_compute_instance.db02_instance: Still creating... [20s elapsed]
-yandex_compute_instance.nat_instance: Still creating... [30s elapsed]
+yandex_compute_instance.db01_instance: Still creating... [20s elapsed]
+yandex_compute_instance.runner_instance: Still creating... [20s elapsed]
+yandex_compute_instance.gitlab_instance: Still creating... [20s elapsed]
+yandex_compute_instance.app_instance: Still creating... [20s elapsed]
+yandex_compute_instance.entrance_instance: Still creating... [20s elapsed]
+yandex_compute_instance.monitoring_instance: Still creating... [20s elapsed]
+yandex_compute_instance.nat_instance: Still creating... [20s elapsed]
+yandex_compute_instance.db02_instance: Still creating... [30s elapsed]
 yandex_compute_instance.app_instance: Still creating... [30s elapsed]
+yandex_compute_instance.runner_instance: Still creating... [30s elapsed]
+yandex_compute_instance.gitlab_instance: Still creating... [30s elapsed]
 yandex_compute_instance.db01_instance: Still creating... [30s elapsed]
 yandex_compute_instance.entrance_instance: Still creating... [30s elapsed]
-yandex_compute_instance.runner_instance: Still creating... [30s elapsed]
-yandex_compute_instance.db02_instance: Still creating... [30s elapsed]
 yandex_compute_instance.monitoring_instance: Still creating... [30s elapsed]
-yandex_compute_instance.gitlab_instance: Still creating... [30s elapsed]
-yandex_compute_instance.app_instance: Still creating... [40s elapsed]
-yandex_compute_instance.nat_instance: Still creating... [40s elapsed]
-yandex_compute_instance.db01_instance: Still creating... [40s elapsed]
-yandex_compute_instance.runner_instance: Still creating... [40s elapsed]
-yandex_compute_instance.entrance_instance: Still creating... [40s elapsed]
+yandex_compute_instance.nat_instance: Still creating... [30s elapsed]
 yandex_compute_instance.gitlab_instance: Still creating... [40s elapsed]
+yandex_compute_instance.runner_instance: Still creating... [40s elapsed]
+yandex_compute_instance.app_instance: Still creating... [40s elapsed]
+yandex_compute_instance.db01_instance: Still creating... [40s elapsed]
 yandex_compute_instance.db02_instance: Still creating... [40s elapsed]
+yandex_compute_instance.entrance_instance: Still creating... [40s elapsed]
 yandex_compute_instance.monitoring_instance: Still creating... [40s elapsed]
-yandex_compute_instance.db01_instance: Creation complete after 44s [id=fhmj1e7trnusb132jpdu]
-yandex_compute_instance.runner_instance: Creation complete after 45s [id=fhme8tl9t757804m8v5h]
-yandex_compute_instance.entrance_instance: Creation complete after 47s [id=fhmbcbv93uok1a0m5fec]
-yandex_dns_recordset.www_recordset: Creating...
+yandex_compute_instance.nat_instance: Still creating... [40s elapsed]
+yandex_compute_instance.entrance_instance: Still creating... [50s elapsed]
+yandex_compute_instance.runner_instance: Still creating... [50s elapsed]
+yandex_compute_instance.app_instance: Still creating... [50s elapsed]
+yandex_compute_instance.db02_instance: Still creating... [50s elapsed]
+yandex_compute_instance.db01_instance: Still creating... [50s elapsed]
+yandex_compute_instance.gitlab_instance: Still creating... [50s elapsed]
+yandex_compute_instance.monitoring_instance: Still creating... [50s elapsed]
+yandex_compute_instance.nat_instance: Still creating... [50s elapsed]
+yandex_compute_instance.app_instance: Creation complete after 54s [id=fhm66kuvbv5d32bt77sg]
+yandex_compute_instance.entrance_instance: Creation complete after 57s [id=fhmr2qdt1gna26k2colp]
 yandex_dns_recordset.prometheus_recordset: Creating...
 yandex_dns_recordset.grafana_recordset: Creating...
 yandex_dns_recordset.gitlab_recordset: Creating...
 yandex_dns_recordset.alertmanager_recordset: Creating...
-yandex_compute_instance.db02_instance: Creation complete after 47s [id=fhmhac1fea8kv5c2lio7]
-yandex_dns_recordset.gitlab_recordset: Creation complete after 1s [id=dns7s9j6798pmktvv5m5/gitlab.tcibizov.ru./A]
-yandex_dns_recordset.prometheus_recordset: Creation complete after 1s [id=dns7s9j6798pmktvv5m5/prometheus.tcibizov.ru./A]
-yandex_dns_recordset.www_recordset: Creation complete after 1s [id=dns7s9j6798pmktvv5m5/www.tcibizov.ru./A]
-yandex_dns_recordset.grafana_recordset: Creation complete after 2s [id=dns7s9j6798pmktvv5m5/grafana.tcibizov.ru./A]
-yandex_dns_recordset.alertmanager_recordset: Creation complete after 2s [id=dns7s9j6798pmktvv5m5/alertmanager.tcibizov.ru./A]
-yandex_compute_instance.app_instance: Creation complete after 49s [id=fhmfob9np81iafq9ffi9]
-yandex_compute_instance.nat_instance: Creation complete after 50s [id=fhm18a6qo0f22lhjhv0b]
+yandex_compute_instance.db01_instance: Creation complete after 57s [id=fhmf7q0qs14pu00aroa7]
+yandex_dns_recordset.www_recordset: Creating...
+yandex_compute_instance.gitlab_instance: Creation complete after 57s [id=fhmkgprs2lgcipjuvgim]
+yandex_compute_instance.runner_instance: Creation complete after 57s [id=fhmkbp8dhdbkffnrh9ta]
+yandex_compute_instance.nat_instance: Creation complete after 57s [id=fhmjplori7s3pp8u0uom]
 yandex_vpc_route_table.nat_vpc_route_table: Creating...
-yandex_compute_instance.gitlab_instance: Still creating... [50s elapsed]
-yandex_compute_instance.monitoring_instance: Still creating... [50s elapsed]
-yandex_compute_instance.gitlab_instance: Creation complete after 51s [id=fhmus4tftbdff3fu3heh]
-yandex_vpc_route_table.nat_vpc_route_table: Creation complete after 1s [id=enptbg3ch53qft6911u3]
+yandex_dns_recordset.gitlab_recordset: Creation complete after 0s [id=dns0bc9b3fphm1bhgbpu/gitlab.tcibizov.ru./A]
+yandex_dns_recordset.prometheus_recordset: Creation complete after 1s [id=dns0bc9b3fphm1bhgbpu/prometheus.tcibizov.ru./A]
+yandex_dns_recordset.www_recordset: Creation complete after 1s [id=dns0bc9b3fphm1bhgbpu/www.tcibizov.ru./A]
+yandex_dns_recordset.alertmanager_recordset: Creation complete after 1s [id=dns0bc9b3fphm1bhgbpu/alertmanager.tcibizov.ru./A]
+yandex_dns_recordset.grafana_recordset: Creation complete after 2s [id=dns0bc9b3fphm1bhgbpu/grafana.tcibizov.ru./A]
+yandex_vpc_route_table.nat_vpc_route_table: Creation complete after 2s [id=enpvk8n53lhd854ks0l2]
 yandex_vpc_subnet.private_vpc_subnet: Creating...
-yandex_vpc_subnet.private_vpc_subnet: Creation complete after 1s [id=e9bl7mulfvc2mgu9v5k1]
-yandex_compute_instance.monitoring_instance: Creation complete after 1m0s [id=fhm6eqsgfdm4vlh7qhkp]
+yandex_compute_instance.db02_instance: Creation complete after 59s [id=fhm4tpit54v5rvlcagaq]
+yandex_compute_instance.monitoring_instance: Creation complete after 1m0s [id=fhmvgjkipa8uspp8mnfa]
+yandex_vpc_subnet.private_vpc_subnet: Creation complete after 1s [id=e9bsi93s0gn4gss6l3a4]
 
 Apply complete! Resources: 18 added, 0 changed, 0 destroyed.
-
-root@alex:/home/alex/dvpspdc# 
-
 ```
 После создания инфраструктуры проверим Terraform Cloud:
 
