@@ -1783,43 +1783,43 @@ Apply complete! Resources: 18 added, 0 changed, 0 destroyed.
 
 ```
 Host tcibizov.ru
-  HostName 178.154.202.134
+  HostName 178.154.241.202
   User ubuntu
   IdentityFile ~/.ssh/id_rsa
   
 Host db01.tcibizov.ru
-  HostName 10.128.0.29
+  HostName 10.128.0.5
   User ubuntu
   IdentityFile ~/.ssh/id_rsa
-    ProxyJump ubuntu@178.154.202.134
+    ProxyJump ubuntu@178.154.241.202
     ProxyCommand ssh -W %h:%p -i .ssh/id_rsa
 
 Host db02.tcibizov.ru
-  HostName 10.128.0.11
+  HostName 10.128.0.20
   User ubuntu
   IdentityFile ~/.ssh/id_rsa
-    ProxyJump ubuntu@178.154.202.134
+    ProxyJump ubuntu@178.154.241.202
     ProxyCommand ssh -W %h:%p -i .ssh/id_rsa
 
 Host app.tcibizov.ru
-  HostName 10.128.0.31
+  HostName 10.128.0.9
   User ubuntu
   IdentityFile ~/.ssh/id_rsa
-    ProxyJump ubuntu@178.154.202.134
+    ProxyJump ubuntu@178.154.241.202
     ProxyCommand ssh -W %h:%p -i .ssh/id_rsa
 
 Host monitoring.tcibizov.ru
-  HostName 10.128.0.26
+  HostName 10.128.0.15
   User ubuntu
   IdentityFile ~/.ssh/id_rsa
-    ProxyJump ubuntu@178.154.202.134
+    ProxyJump ubuntu@178.154.241.202
     ProxyCommand ssh -W %h:%p -i .ssh/id_rsa
 
 Host gitlab.tcibizov.ru
-  HostName 10.128.0.25
+  HostName 10.128.0.7
   User ubuntu
   IdentityFile ~/.ssh/id_rsa
-    ProxyJump ubuntu@178.154.202.134
+    ProxyJump ubuntu@178.154.241.202
     ProxyCommand ssh -W %h:%p -i .ssh/id_rsa
 ```
 
@@ -1828,12 +1828,12 @@ Host gitlab.tcibizov.ru
 3. Добавим IP-адреса серверов в `variables.yml`:
 
 ```
-app_tcibizov_ru_ip_addr_internal: "10.128.0.31"
-db01_tcibizov_ru_ip_addr_internal: "10.128.0.29"
-db02_tcibizov_ru_ip_addr_internal: "10.128.0.11"
-entrance_tcibizov_ru_ip_addr_external: "178.154.202.134"
-gitlab_tcibizov_ru_ip_addr_internal: "10.128.0.25"
-monitoring_tcibizov_ru_ip_addr_internal: "10.128.0.26"
+app_tcibizov_ru_ip_addr_internal: "10.128.0.9"
+db01_tcibizov_ru_ip_addr_internal: "10.128.0.5"
+db02_tcibizov_ru_ip_addr_internal: "10.128.0.20"
+entrance_tcibizov_ru_ip_addr_external: "178.154.241.202"
+gitlab_tcibizov_ru_ip_addr_internal: "10.128.0.7"
+monitoring_tcibizov_ru_ip_addr_internal: "10.128.0.15"
 ```
 
 4. Добавим соответствующие IP-адреса в Prometheus:
@@ -1856,32 +1856,32 @@ scrape_configs:
   - job_name: 'entrance-node'
     scrape_interval: 10s
     static_configs:
-      - targets: [ '178.154.202.134:9100' ]
+      - targets: [ '178.154.241.202:9100' ]
 
   - job_name: 'gitlab-node'
     scrape_interval: 10s
     static_configs:
-      - targets: [ '10.128.0.25:9100' ]
+      - targets: [ '10.128.0.7:9100' ]
 
   - job_name: 'monitoring-node'
     scrape_interval: 10s
     static_configs:
-      - targets: [ '10.128.0.26:9100' ]
+      - targets: [ '10.128.0.15:9100' ]
 
   - job_name: 'wordpress-node'
     scrape_interval: 10s
     static_configs:
-      - targets: [ '10.128.0.31:9100' ]
+      - targets: [ '10.128.0.9:9100' ]
 
   - job_name: 'db01-node'
     scrape_interval: 10s
     static_configs:
-      - targets: [ '10.128.0.29:9100' ]
+      - targets: [ '10.128.0.5:9100' ]
 
   - job_name: 'db02-node'
     scrape_interval: 10s
     static_configs:
-      - targets: [ '10.128.0.11:9100' ]
+      - targets: [ '10.128.0.20:9100' ]
 ```
 ### Запуск Ansible
 
